@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Crisp Suite Homepage Hub</title>
-    <!-- Favicon para sa browser tab -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%2338bdf8%22><path d=%22M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z%22/></svg>">
+    <title>Crisp Suite Marketplace | HandleVault Official Hub</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="manifest" href="manifest.json">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-color: #38bdf8;
-            --text-color: #f8fafc;
-            --text-secondary: #94a3b8;
-            --border-color: #334155;
-            --btn-gumroad: #ff90e8;
-            --btn-kofi: #ff5e5b;
-            --btn-liveview: #f59e0b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --header-bg: #0f172a;
+            --accent-color: #0284c7;
+            --accent-hover: #0369a1;
+            --text-color: #0f172a;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --price-color: #f97316;
+            --tag-bg: #e0f2fe;
+            --tag-text: #0369a1;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             margin: 0;
@@ -29,544 +31,657 @@
             align-items: center;
             min-height: 100vh;
         }
-        header {
-            text-align: center;
-            padding: 40px 20px 20px;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: var(--accent-color);
-        }
-        header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .ecosystem-nav {
+        .marketplace-header {
+            background-color: var(--header-bg);
+            color: #ffffff;
+            width: 100%;
+            padding: 20px 0;
             display: flex;
-            gap: 12px;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-content {
+            max-width: 1200px;
+            width: 92%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
-            margin: 20px 0 30px;
-            padding: 0 20px;
+            gap: 15px;
         }
-        .nav-link {
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-            font-size: 0.95rem;
-            transition: opacity 0.2s;
-        }
-        .nav-kofi { background-color: var(--btn-kofi); }
-        .nav-gumroad { background-color: var(--btn-gumroad); color: #0f172a; }
-        .nav-link:hover { opacity: 0.85; }
-
-        .section-title {
-            max-width: 1100px;
-            width: 90%;
-            margin: 30px auto 15px;
+        .brand-title {
             font-size: 1.5rem;
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 8px;
+            font-weight: 700;
+            color: #38bdf8;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-
-        .container {
-            max-width: 1100px;
-            width: 90%;
-            margin: 0 auto 20px;
+        .marketplace-nav {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+        }
+        .marketplace-nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .marketplace-nav a:hover {
+            color: #ffffff;
+        }
+        .hero-banner {
+            max-width: 1200px;
+            width: 92%;
+            margin: 25px auto 15px;
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            border-radius: 12px;
+            color: white;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2);
+        }
+        .hero-text h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+        }
+        .hero-text p {
+            margin: 0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+        .hero-btn {
+            background-color: #ffffff;
+            color: #0284c7;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: background-color 0.2s;
+        }
+        .hero-btn:hover {
+            background-color: #f1f5f9;
+        }
+        .marketplace-container {
+            max-width: 1200px;
+            width: 92%;
+            margin: 10px auto 40px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
         }
-        .card {
+        .product-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
+            border-radius: 8px;
+            padding: 16px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
         }
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-color);
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: #cbd5e1;
         }
-        .card.featured {
-            border: 2px solid var(--accent-color);
-            background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(30, 41, 59, 1) 100%);
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
         }
-        .card h3 {
-            margin-top: 0;
-            font-size: 1.2rem;
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--price-color);
+            margin: 8px 0;
+        }
+        .product-card h3 {
+            margin: 0 0 6px 0;
+            font-size: 1rem;
+            font-weight: 600;
             color: var(--text-color);
+            padding-right: 50px;
         }
-        .card p {
+        .product-card p {
             color: var(--text-secondary);
-            font-size: 0.92rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        .btn-group {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-        .btn {
-            flex: 1;
-            min-width: 80px;
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #0f172a;
-            padding: 8px 10px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.75rem;
-            text-align: center;
-            transition: opacity 0.2s;
-            cursor: pointer;
-            border: none;
-        }
-        .btn:hover { opacity: 0.9; }
-        .btn-buy { background-color: var(--btn-gumroad); color: #0f172a; }
-        .btn-liveview { background-color: var(--btn-liveview); color: #0f172a; font-weight: bold; }
-
-        /* Live View Modal / Overlay Styles */
-        #live-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(15, 23, 42, 0.92);
-            z-index: 1000;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .modal-content-wrapper {
-            background-color: var(--card-bg);
-            border: 1px solid var(--accent-color);
-            border-radius: 12px;
-            width: 100%;
-            max-width: 1100px;
-            height: 85vh;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            font-size: 0.82rem;
+            line-height: 1.4;
+            margin-bottom: 14px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
             overflow: hidden;
         }
-        .modal-header {
+        .product-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: auto;
+        }
+        .product-actions {
+            display: flex;
+            gap: 6px;
+        }
+        .marketplace-btn {
+            flex: 1;
+            padding: 7px 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.78rem;
+            text-align: center;
+            transition: background-color 0.15s;
+        }
+        .btn-launch {
+            background-color: #f1f5f9;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+        .btn-launch:hover {
+            background-color: #e2e8f0;
+        }
+        .btn-buy {
+            background-color: var(--accent-color);
+            color: #ffffff;
+        }
+        .btn-buy:hover {
+            background-color: var(--accent-hover);
+        }
+        .marketplace-notice {
+            max-width: 1200px;
+            width: 92%;
+            margin: 0 auto 30px;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
-            background-color: #0f172a;
-            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 15px;
         }
-        .modal-header h2 {
+        .notice-text h4 {
+            margin: 0 0 5px 0;
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+        .notice-text p {
             margin: 0;
-            font-size: 1.2rem;
-            color: var(--accent-color);
-        }
-        .close-modal-btn {
-            background-color: #ef4444;
-            color: white;
-            border: none;
-            padding: 6px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
             font-size: 0.85rem;
+            color: var(--text-secondary);
         }
-        .close-modal-btn:hover { opacity: 0.85; }
-        #live-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background-color: #ffffff;
-        }
-
         footer {
             text-align: center;
-            padding: 30px 20px;
+            padding: 20px;
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             border-top: 1px solid var(--border-color);
             width: 100%;
+            background-color: #ffffff;
             margin-top: auto;
+        }
+        @media (max-width: 768px) {
+            .hero-banner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Crisp Suite Ecosystem Hub</h1>
-        <p>Centralized platform integrating automated sales (Gumroad, Ko-fi) and interactive web app live views.</p>
-    </header>
-
-    <div class="ecosystem-nav">
-        <a href="https://ko-fi.com/handlevaultofficial" target="_blank" class="nav-link nav-kofi">☕ Support Us on Ko-fi</a>
-        <a href="https://vaultkeeper117.gumroad.com" target="_blank" class="nav-link nav-gumroad">💎 Gumroad Store Hub</a>
-    </div>
-
-    <!-- 💌 FEATURED FLAGSHIP APP -->
-    <div class="section-title">💌 Featured Flagship App</div>
-    <div class="container">
-        <div class="card featured">
-            <div>
-                <h3>Crisp Gate Invite (Love & Budget Gate)</h3>
-                <p>Interactive Q&amp;A-gated digital invitation system for weddings, dates, and special events featuring guest identity verification, bill-share screening, and a click-to-open envelope UI.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Crisp Gate Invite', 'https://handlevault-official.github.io/crisp-gate-invite/')">Live View</button>
+    <!-- Marketplace Header -->
+    <div class="marketplace-header">
+        <div class="header-content">
+            <a href="#" class="brand-title">🛍️ Crisp Suite Store</a>
+            <div class="marketplace-nav">
+                <a href="https://vaultkeeper117.gumroad.com" target="_blank">Gumroad Store</a>
+                <a href="https://ko-fi.com/handlevaultofficial" target="_blank">Ko-fi Support</a>
+                <a href="https://replit.com/@handlevault" target="_blank">Workspace</a>
             </div>
         </div>
     </div>
 
-    <!-- 📦 CORE PRODUCT SUITE & LIVE LINKS -->
-    <div class="section-title">📦 Core Product Suite &amp; Live Links</div>
-    <div class="container">
-        
-        <!-- Pixel Art Studio -->
-        <div class="card">
+    <!-- Featured Promo Banner -->
+    <div class="hero-banner">
+        <div class="hero-text">
+            <h2>Crisp Suite Ecosystem Hub &amp; All-Access Pass</h2>
+            <p>Explore our complete inventory of offline-first web applications, creator assets, and utilities. Protected source code with live preview support.</p>
+        </div>
+        <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="hero-btn">Get All-Access Pass</a>
+    </div>
+
+    <!-- Marketplace Grid Products -->
+    <div class="marketplace-container">
+
+        <!-- 1. Crisp Gate Invite -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Crisp Gate Invite</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>Interactive Q&amp;A-gated digital invitation system for weddings and special events with guest identity verification &amp; envelope UI.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-gate-invite/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Pixel Art Studio -->
+        <div class="product-card">
+            <span class="product-badge">Studio</span>
             <div>
                 <h3>Pixel Art Studio</h3>
-                <p>Create stunning retro pixel art, game assets, and digital illustrations with our crisp pixel scaling canvas.</p>
+                <div class="product-price">₱399.00 / Code</div>
+                <p>Create retro pixel art, game assets, and custom illustrations with a clean pixel scaling canvas workspace.</p>
             </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Pixel Art Studio', 'https://handlevault-official.github.io/crisp-pixel/')">Live View</button>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-pixel/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
             </div>
         </div>
 
-        <!-- Moonlit Beads Blueprint -->
-        <div class="card">
+        <!-- 3. Moonlit Beads Blueprint -->
+        <div class="product-card">
+            <span class="product-badge">Tool</span>
             <div>
                 <h3>Moonlit Beads Blueprint</h3>
+                <div class="product-price">₱499.00 / Code</div>
                 <p>Dedicated creative design and pattern utility tool tailored specifically for crafters and beadwork artists.</p>
             </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Moonlit Beads Blueprint', 'https://handlevault-official.github.io/crisp-moonlit-beads-blueprint-studio/')">Live View</button>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-moonlit-beads-blueprint-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
             </div>
         </div>
 
-        <!-- Resume & CV Studio -->
-        <div class="card">
+        <!-- 4. Universal Product Template (Pixel Art Pack) -->
+        <div class="product-card">
+            <span class="product-badge">Assets</span>
             <div>
-                <h3>Resume &amp; CV Studio</h3>
-                <p>Build ATS-optimized resumes and professional digital portfolios to stand out to recruiters instantly.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Resume & CV Studio', 'https://handlevault-official.github.io/crisp-resume-CV-studio/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- Invoice Studio -->
-        <div class="card">
-            <div>
-                <h3>Invoice Studio</h3>
-                <p>Clean, professional, and fast invoicing and billing tool built specifically for freelancers and small businesses.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Invoice Studio', 'https://handlevault-official.github.io/crisp-invoice-studio/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- GitVoice Clinical Dashboard -->
-        <div class="card">
-            <div>
-                <h3>GitVoice Clinical Dashboard</h3>
-                <p>AI-powered medical and professional voice-to-text assistant for quick and accurate transcriptions.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('GitVoice Clinical Dashboard', 'https://handlevault-official.github.io/crisp-gitvoice-clinical-dashboard/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- Kusina AI -->
-        <div class="card">
-            <div>
-                <h3>Kusina AI</h3>
-                <p>AI-powered web app designed for food business owners and online sellers to generate high-converting Taglish captions and TikTok hooks.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Kusina AI', 'https://handlevault-official.github.io/kusina-ai/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- Crisp Creator Studio -->
-        <div class="card">
-            <div>
-                <h3>Crisp Creator Studio</h3>
-                <p>All-in-one YouTube &amp; creator packaging studio to generate high-CTR titles, thumbnail concepts, and SEO scripts.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Crisp Creator Studio', 'https://handlevault-official.github.io/crisp-creator-studio/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- Crisp Math Studio -->
-        <div class="card">
-            <div>
-                <h3>Crisp Math Studio</h3>
-                <p>Local-first offline math workshop and business calculator featuring a running history tape and retail markup solvers.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Crisp Math Studio', 'https://handlevault-official.github.io/crisp-math-studio/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- Crisp Science Studio -->
-        <div class="card">
-            <div>
-                <h3>Crisp Science Studio</h3>
-                <p>Local-first offline science workshop and lab calculator featuring density &amp; gas law solvers and unit converters.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Crisp Science Studio', 'https://handlevault-official.github.io/crisp-science-studio/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- Crisp Study Studio -->
-        <div class="card">
-            <div>
-                <h3>Crisp Study Studio</h3>
-                <p>Local-first offline study assistant featuring a Pomodoro focus timer, interactive flashcards, and task tracker.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Crisp Study Studio', 'https://handlevault-official.github.io/crisp-study-studio/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- Crisp Music Studio -->
-        <div class="card">
-            <div>
-                <h3>Crisp Music Studio</h3>
-                <p>Local-first offline music workshop featuring a chord progression generator and Web Audio API metronome.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Crisp Music Studio', 'https://handlevault-official.github.io/crisp-music-studio/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- Crisp Farm Voice Studio -->
-        <div class="card">
-            <div>
-                <h3>Crisp Farm Voice Studio</h3>
-                <p>Local-first offline agricultural workshop featuring a voice-enabled field logger and farm chore checklist.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Crisp Farm Voice Studio', 'https://handlevault-official.github.io/crisp-farm-voice-studio/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- Crisp Senior Studio -->
-        <div class="card">
-            <div>
-                <h3>Crisp Senior Studio</h3>
-                <p>Local-first offline health and daily care assistant featuring medication reminders and emergency SOS hub.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Crisp Senior Studio', 'https://handlevault-official.github.io/crisp-senior-studio/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- Crisp Kids Studio -->
-        <div class="card">
-            <div>
-                <h3>Crisp Kids Studio</h3>
-                <p>Local-first offline educational workshop featuring ABC &amp; 123 flashcards and magical doodle canvas drawing pad.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Crisp Kids Studio', 'https://handlevault-official.github.io/crisp-kids-studio/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- Crisp Game Studio -->
-        <div class="card">
-            <div>
-                <h3>Crisp Game Studio</h3>
-                <p>Local-first indie game development workshop featuring a GDD milestone checklist and game math calculators.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Crisp Game Studio', 'https://handlevault-official.github.io/crisp-game-studio/')">Live View</button>
-            </div>
-        </div>
-
-        <!-- Crisp Expense Studio -->
-        <div class="card">
-            <div>
-                <h3>Crisp Expense Studio</h3>
-                <p>Local-first offline daily expense tracker and budget manager featuring category breakdowns and transaction history.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Crisp Expense Studio', 'https://handlevault-official.github.io/crisp-expense-studio/')">Live View</button>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- 💎 GUMROAD STORE HUB & DIGITAL ASSETS -->
-    <div class="section-title">💎 Gumroad Store Hub &amp; Digital Assets</div>
-    <div class="container">
-        
-        <!-- Crisp Suite Studio Hub (All-Access Pass) -->
-        <div class="card" style="border-color: var(--btn-gumroad);">
-            <div>
-                <h3>Crisp Suite Studio Hub (All-Access Pass)</h3>
-                <p>Unlock the ultimate master bundle containing access to all productivity applications and design suites.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy" style="flex: 2;">Get All-Access Pass</a>
-            </div>
-        </div>
-
-        <!-- Universal Product Template (Pixel Art Pack) -->
-        <div class="card">
-            <div>
-                <h3>Universal Product Template (Pixel Art Pack)</h3>
+                <h3>Pixel Art Pack Template</h3>
+                <div class="product-price">₱399.00 / Pack</div>
                 <p>High-quality adaptable assets and templates designed for retro games, creators, and digital art projects.</p>
             </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" class="btn btn-buy" style="flex: 2;">Get Pixel Art Pack</a>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" class="marketplace-btn btn-buy" style="flex: 1;">Get Code</a>
+                </div>
             </div>
         </div>
 
-        <!-- Free WebM Sample Alert -->
-        <div class="card">
+        <!-- 5. FREE WEB-M SAMPLE ALERT -->
+        <div class="product-card">
+            <span class="product-badge" style="background:#dcfce7; color:#166534;">Free</span>
             <div>
-                <h3>Free WebM Sample Alert (Resub #3)</h3>
-                <p>Grab your free web-m sample animated stream alert to test out your broadcast layout setup.</p>
+                <h3>Free WebM Sample Alert</h3>
+                <div class="product-price" style="color:#166534;">FREE</div>
+                <p>Grab your free sample animated stream alert (Resub #3) to test out your broadcast layout setup effortlessly.</p>
             </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/copzec" target="_blank" class="btn btn-buy" style="flex: 2; background-color: #34d399;">Get Free Alert</a>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://vaultkeeper117.gumroad.com/l/copzec" target="_blank" class="marketplace-btn btn-buy" style="background:#22c55e; flex: 1;">Download Free</a>
+                </div>
             </div>
         </div>
 
-        <!-- Standard MP4 Format Animated Alert File -->
-        <div class="card">
+        <!-- 6. Standard MP4 Format Animated Alert -->
+        <div class="product-card">
+            <span class="product-badge">Media</span>
             <div>
-                <h3>Standard MP4 Format Animated Alert File</h3>
+                <h3>Standard MP4 Format Alert</h3>
+                <div class="product-price">₱299.00 / File</div>
                 <p>Smooth, professional animated stream alerts optimized for broad compatibility across streaming platforms.</p>
             </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/dkmedq" target="_blank" class="btn btn-buy" style="flex: 2;">Get MP4 Alert</a>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://vaultkeeper117.gumroad.com/l/dkmedq" target="_blank" class="marketplace-btn btn-buy" style="flex: 1;">Get Code</a>
+                </div>
             </div>
         </div>
 
-        <!-- Pixel Art Ninja Cat -->
-        <div class="card">
+        <!-- 7. Pixel Art Ninja Cat -->
+        <div class="product-card">
+            <span class="product-badge">Assets</span>
             <div>
-                <h3>Pixel Art Ninja Cat (Static Images &amp; 512px Avatars)</h3>
+                <h3>Pixel Art Ninja Cat</h3>
+                <div class="product-price">₱249.00 / Bundle</div>
                 <p>Detailed static pixel art graphics and 512px Discord avatars featuring a stealthy ninja cat theme.</p>
             </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/lhhxej" target="_blank" class="btn btn-buy" style="flex: 2;">Get Ninja Cat Pack</a>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://vaultkeeper117.gumroad.com/l/lhhxej" target="_blank" class="marketplace-btn btn-buy" style="flex: 1;">Get Code</a>
+                </div>
             </div>
         </div>
 
-        <!-- WebM Animated Alert File -->
-        <div class="card">
+        <!-- 8. WebM Animated Alert File -->
+        <div class="product-card">
+            <span class="product-badge">Media</span>
             <div>
                 <h3>WebM Animated Alert File</h3>
+                <div class="product-price">₱299.00 / File</div>
                 <p>Transparent background WebM animated alerts built explicitly for seamless overlay integration in OBS/Streamlabs.</p>
             </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/fanvlu" target="_blank" class="btn btn-buy" style="flex: 2;">Get WebM Alert</a>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://vaultkeeper117.gumroad.com/l/fanvlu" target="_blank" class="marketplace-btn btn-buy" style="flex: 1;">Get Code</a>
+                </div>
             </div>
         </div>
 
-        <!-- YouTube-MP4 Animated Alert File -->
-        <div class="card">
+        <!-- 9. YouTube-MP4 Animated Alert File -->
+        <div class="product-card">
+            <span class="product-badge">Media</span>
             <div>
-                <h3>YouTube-MP4 Animated Alert File</h3>
+                <h3>YouTube-MP4 Alert File</h3>
+                <div class="product-price">₱299.00 / File</div>
                 <p>Custom-tailored animated stream alerts formatted perfectly for YouTube live broadcasting setups.</p>
             </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/aihkjh" target="_blank" class="btn btn-buy" style="flex: 2;">Get YouTube Alert</a>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://vaultkeeper117.gumroad.com/l/aihkjh" target="_blank" class="marketplace-btn btn-buy" style="flex: 1;">Get Code</a>
+                </div>
             </div>
         </div>
 
-        <!-- Calm Aesthetic Wallpaper Bundle -->
-        <div class="card">
+        <!-- 10. Calm Aesthetic Wallpaper Bundle -->
+        <div class="product-card">
+            <span class="product-badge">Assets</span>
             <div>
-                <h3>Calm Aesthetic Wallpaper Bundle</h3>
+                <h3>Aesthetic Wallpaper Bundle</h3>
+                <div class="product-price">₱199.00 / Bundle</div>
                 <p>Gumroad-ready soothing and minimal aesthetic wallpapers to elevate your desktop or mobile home screen.</p>
             </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/echfl" target="_blank" class="btn btn-buy" style="flex: 2;">Get Wallpapers</a>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://vaultkeeper117.gumroad.com/l/echfl" target="_blank" class="marketplace-btn btn-buy" style="flex: 1;">Get Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. Resume & CV Studio -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Resume &amp; CV Studio</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>Build ATS-optimized resumes and professional digital portfolios to stand out to recruiters instantly.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-resume-CV-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. Invoice Studio -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Invoice Studio</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>Clean, professional, and fast invoicing and billing tool built specifically for freelancers and small businesses.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-invoice-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 13. GitVoice Clinical Dashboard -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>GitVoice Clinical Dashboard</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>AI-powered medical and professional voice-to-text assistant for quick and accurate transcriptions.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/gitvoice-clinical-dashboard/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 14. Kusina AI -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Kusina AI Caption Generator</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>AI-powered web app for food business owners to generate high-converting Taglish captions and TikTok hooks.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/kusina-ai/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- 15. Crisp Creator Studio -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Crisp Creator Studio</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>All-in-one YouTube creator packaging studio to generate high-CTR titles, thumbnails, and retention hooks.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-creator-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 16. Crisp Math Studio -->
+         <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Crisp Math Studio</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>Local-first offline math workshop and business calculator featuring running history and margin solvers.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-math-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+      <!-- 17. Crisp Science Studio -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Crisp Science Studio</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>Local-first offline science workshop and lab calculator featuring density &amp; gas law solvers.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-science-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 18. Crisp Study Studio -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Crisp Study Studio</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>Local-first offline study assistant featuring a Pomodoro focus timer, flashcards, and task tracker.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-study-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 19. Crisp Music Studio -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Crisp Music Studio</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>Local-first offline music workshop featuring a chord progression generator and Web Audio metronome.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-music-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 20. Crisp Farm Voice Studio -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Crisp Farm Voice Studio</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>Local-first offline agricultural workshop featuring voice-enabled field loggers and crop guides.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-farm-voice-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 21. Crisp Senior Studio -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Crisp Senior Studio</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>Local-first health and daily care assistant featuring medication reminders and emergency SOS hub.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-senior-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 22. Crisp Kids Studio -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Crisp Kids Studio</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>Educational workshop featuring flashcards, a doodle canvas pad, and routine star checklists.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-kids-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 23. Crisp Game Studio -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Crisp Game Studio</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>Indie game development workshop featuring milestone checklists and game math calculators.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-game-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 24. Crisp Expense Studio -->
+        <div class="product-card">
+            <span class="product-badge">App</span>
+            <div>
+                <h3>Crisp Expense Studio</h3>
+                <div class="product-price">₱499.00 / Code</div>
+                <p>Offline daily expense tracker and budget manager featuring category breakdowns and spending limits.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://handlevault-official.github.io/crisp-expense-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
+                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 25. HandleVault Official Ko-fi Support Hub -->
+        <div class="product-card">
+            <span class="product-badge" style="background:#fef3c7; color:#92400e;">Support</span>
+            <div>
+                <h3>Ko-fi Support Hub</h3>
+                <div class="product-price">Custom Tip</div>
+                <p>Support ongoing open-source development, repository maintenance, and independent creator tools.</p>
+            </div>
+            <div class="product-footer">
+                <div class="product-actions">
+                    <a href="https://ko-fi.com/handlevaultofficial" target="_blank" class="marketplace-btn btn-buy" style="background:#ff5e5b; flex: 1;">Support on Ko-fi</a>
+                </div>
             </div>
         </div>
 
     </div>
 
-    <!-- Live Preview Modal Overlay -->
-    <div id="live-modal">
-        <div class="modal-content-wrapper">
-            <div class="modal-header">
-                <h2 id="modal-title">App Live View</h2>
-                <button class="close-modal-btn" onclick="closeLiveView()">✕ Close / Exit</button>
-            </div>
-            <iframe id="live-iframe" src="" title="App Live View"></iframe>
+    <!-- Bottom Notice for Manual Payments / Verification -->
+    <div class="marketplace-notice">
+        <div class="notice-text">
+            <h4>💳 Manual Payments (GCash / Maya / Bank Transfer)</h4>
+            <p>Direct local transfers are fully accepted. Send your payment screenshot and reference number for quick key verification.</p>
         </div>
+        <a href="https://vaultkeeper117.gumroad.com" target="_blank" class="marketplace-btn btn-buy" style="padding: 8px 16px; flex: initial;">Visit Main Store</a>
     </div>
-
-    <script>
-        function openLiveView(appName, appUrl) {
-            const modal = document.getElementById('live-modal');
-            const iframe = document.getElementById('live-iframe');
-            const title = document.getElementById('modal-title');
-            
-            title.textContent = 'Live View: ' + appName;
-            iframe.src = appUrl;
-            modal.style.display = 'flex';
-        }
-
-        function closeLiveView() {
-            const modal = document.getElementById('live-modal');
-            const iframe = document.getElementById('live-iframe');
-            
-            iframe.src = ''; 
-            modal.style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('live-modal');
-            if (event.target === modal) {
-                closeLiveView();
-            }
-        }
-    </script>
 
     <footer>
         <p>&copy; 2026 Crisp Suite / HandleVault Official. All rights reserved.</p>
-    </footer> 
+    </footer>
 
 </body>
-</html>
+    </html>
