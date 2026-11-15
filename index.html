@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crisp Suite / HandleVault Official | Centralized Private Hub & Live View</title>
+    <title>HVS Studio / Crisp Suite Ecosystem Hub</title>
     <!-- Favicon para sa browser tab -->
-    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-    <!-- Link para sa PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%2338bdf8%22><path d=%22M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z%22/></svg>">
     <style>
         :root {
@@ -18,11 +15,8 @@
             --text-secondary: #94a3b8;
             --border-color: #334155;
             --btn-gumroad: #ff90e8;
-            --btn-github: #2ea043;
-            --btn-replit: #f26207;
-            --btn-ai: #8b5cf6;
             --btn-kofi: #ff5e5b;
-            --btn-free: #34d399;
+            --btn-liveview: #f59e0b;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -47,7 +41,7 @@
         header p {
             color: var(--text-secondary);
             font-size: 1.1rem;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
         .ecosystem-nav {
@@ -67,11 +61,19 @@
             font-size: 0.95rem;
             transition: opacity 0.2s;
         }
-        .nav-github { background-color: var(--btn-github); }
-        .nav-replit { background-color: var(--btn-replit); }
-        .nav-ai { background-color: var(--btn-ai); }
         .nav-kofi { background-color: var(--btn-kofi); }
+        .nav-gumroad { background-color: var(--btn-gumroad); color: #0f172a; }
         .nav-link:hover { opacity: 0.85; }
+
+        .section-title {
+            max-width: 1100px;
+            width: 90%;
+            margin: 30px auto 15px;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
 
         .container {
             max-width: 1100px;
@@ -95,6 +97,10 @@
             transform: translateY(-4px);
             border-color: var(--accent-color);
         }
+        .card.featured {
+            border: 2px solid var(--accent-color);
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(30, 41, 59, 1) 100%);
+        }
         .card h3 {
             margin-top: 0;
             font-size: 1.2rem;
@@ -113,11 +119,11 @@
         }
         .btn {
             flex: 1;
-            min-width: 70px;
+            min-width: 80px;
             display: inline-block;
             background-color: var(--accent-color);
             color: #0f172a;
-            padding: 8px 4px;
+            padding: 8px 10px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
@@ -129,11 +135,7 @@
         }
         .btn:hover { opacity: 0.9; }
         .btn-buy { background-color: var(--btn-gumroad); color: #0f172a; }
-        .btn-free { background-color: var(--btn-free); color: #0f172a; }
-        .btn-repo { background-color: #2ea043; color: #ffffff; }
-        .btn-app { background-color: #38bdf8; color: #0f172a; }
-        .btn-liveview { background-color: #f59e0b; color: #0f172a; font-weight: bold; }
-        .btn-kofi { background-color: var(--btn-kofi); color: #ffffff; }
+        .btn-liveview { background-color: var(--btn-liveview); color: #0f172a; font-weight: bold; }
 
         /* Live View Modal / Overlay Styles */
         #live-modal {
@@ -186,9 +188,7 @@
             font-weight: bold;
             font-size: 0.85rem;
         }
-        .close-modal-btn:hover {
-            opacity: 0.85;
-        }
+        .close-modal-btn:hover { opacity: 0.85; }
         #live-iframe {
             width: 100%;
             height: 100%;
@@ -196,116 +196,9 @@
             background-color: #ffffff;
         }
 
-        /* Flashing / Scrolling Text Ads & Updates Bar */
-        .flash-ticker-bar {
-            max-width: 1100px;
-            width: 90%;
-            margin: 0 auto 25px;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 8px 12px;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
-        }
-        .flash-badge {
-            background-color: var(--accent-color);
-            color: #0f172a;
-            font-size: 0.7rem;
-            font-weight: bold;
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin-right: 12px;
-            white-space: nowrap;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .ticker-wrap {
-            overflow: hidden;
-            white-space: nowrap;
-            width: 100%;
-        }
-        .ticker-content {
-            display: inline-block;
-            animation: tickerScroll 28s linear infinite;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-        .ticker-content span {
-            margin-right: 40px;
-        }
-        .ticker-content a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .ticker-content a:hover {
-            text-decoration: underline;
-        }
-        @keyframes tickerScroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* Bottom Community Hub & Text Ads Section Styles */
-        .bottom-hub {
-            max-width: 1100px;
-            width: 90%;
-            margin: 0 auto 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-        }
-        .hub-box {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .hub-box h3 {
-            color: var(--accent-color);
-            margin-top: 0;
-            font-size: 1.1rem;
-            margin-bottom: 16px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-        }
-        .text-ad {
-            background: rgba(56, 189, 248, 0.05);
-            border-left: 3px solid var(--accent-color);
-            padding: 8px 12px;
-            margin-bottom: 10px;
-            border-radius: 0 6px 6px 0;
-            font-size: 0.83rem;
-            color: var(--text-secondary);
-        }
-        .text-ad a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .text-ad a:hover {
-            text-decoration: underline;
-        }
-        .hub-box ul {
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin: 0;
-            padding-left: 18px;
-            font-size: 0.85rem;
-        }
-        .hub-box li {
-            margin-bottom: 6px;
-        }
-
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
             color: var(--text-secondary);
             font-size: 0.85rem;
             border-top: 1px solid var(--border-color);
@@ -317,47 +210,50 @@
 <body>
 
     <header>
-        <h1>Crisp Suite / HandleVault Official</h1>
-        <p>Centralized Private Ecosystem. Repositories are kept private, while live app views are exclusively accessible right here on this homepage viewer.</p>
+        <h1>Crisp Suite Ecosystem Hub</h1>
+        <p>Centralized platform integrating automated sales (Gumroad, Ko-fi) and interactive web app live views.</p>
     </header>
 
-    <!-- Ecosystem Developer, Funding & Support Navigation -->
     <div class="ecosystem-nav">
         <a href="https://ko-fi.com/handlevaultofficial" target="_blank" class="nav-link nav-kofi">☕ Support Us on Ko-fi</a>
-        <a href="https://github.com/sponsors/handlevault-official" target="_blank" class="nav-link nav-github">💚 GitHub Sponsors</a>
-        <a href="https://replit.com/@handlevault" target="_blank" class="nav-link nav-replit">⚡ Replit Workspace</a>
-        <a href="https://aistudio.google.com" target="_blank" class="nav-link nav-ai">✨ Google AI Studio</a>
+        <a href="https://vaultkeeper117.gumroad.com" target="_blank" class="nav-link nav-gumroad">💎 Gumroad Store Hub</a>
     </div>
 
+    <!-- 💌 FEATURED FLAGSHIP APP -->
+    <div class="section-title">💌 Featured Flagship App</div>
     <div class="container">
-        <!-- 1. HandleVault Studio Hub (All-Access Pass) -->
-        <div class="card" style="border-color: var(--btn-gumroad);">
+        <div class="card featured">
             <div>
-                <h3>1. Crisp Suite / HandleVault Studio Hub (All-Access Pass)</h3>
-                <p>Unlock the ultimate master bundle containing access to all productivity applications and design suites.</p>
+                <h3>Crisp Gate Invite (Love & Budget Gate)</h3>
+                <p>Interactive Q&amp;A-gated digital invitation system for weddings, dates, and special events featuring guest identity verification, bill-share screening, and a click-to-open envelope UI.</p>
             </div>
             <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Pass</a>
-                <button class="btn btn-liveview" onclick="openLiveView('HandleVault Studio Hub', 'https://vaultkeeper117.gumroad.com/l/ztzxpg')">Live View</button>
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <button class="btn btn-liveview" onclick="openLiveView('Crisp Gate Invite', 'https://handlevault-official.github.io/crisp-gate-invite/')">Live View</button>
             </div>
         </div>
+    </div>
 
-        <!-- 2. Pixel Art Studio -->
+    <!-- 📦 CORE PRODUCT SUITE & LIVE LINKS -->
+    <div class="section-title">📦 Core Product Suite &amp; Live Links</div>
+    <div class="container">
+        
+        <!-- Pixel Art Studio -->
         <div class="card">
             <div>
-                <h3>2. Pixel Art Studio</h3>
+                <h3>Pixel Art Studio</h3>
                 <p>Create stunning retro pixel art, game assets, and digital illustrations with our crisp pixel scaling canvas.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Pixel Art Studio', 'https://handlevault-official.github.io/crisp-pixel-studio/')">Live View</button>
+                <button class="btn btn-liveview" onclick="openLiveView('Pixel Art Studio', 'https://handlevault-official.github.io/crisp-pixel/')">Live View</button>
             </div>
         </div>
 
-        <!-- 3. Moonlit Beads Blueprint -->
+        <!-- Moonlit Beads Blueprint -->
         <div class="card">
             <div>
-                <h3>3. Moonlit Beads Blueprint</h3>
+                <h3>Moonlit Beads Blueprint</h3>
                 <p>Dedicated creative design and pattern utility tool tailored specifically for crafters and beadwork artists.</p>
             </div>
             <div class="btn-group">
@@ -366,94 +262,10 @@
             </div>
         </div>
 
-        <!-- 4. Universal Product Template (Pixel Art Pack) -->
+        <!-- Resume & CV Studio -->
         <div class="card">
             <div>
-                <h3>4. Universal Pixel Art Pack Template</h3>
-                <p>High-quality adaptable assets and templates designed for retro games, creators, and digital art projects.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Universal Pixel Art Pack Template', 'https://github.com/handlevault-official/kofi-files')">Live View</button>
-            </div>
-        </div>
-
-        <!-- 5. FREE WEB-M SAMPLE ALERT -->
-        <div class="card">
-            <div>
-                <h3>5. 🎁 FREE WEB-M SAMPLE ALERT (RESUB #3)</h3>
-                <p>Grab your free web-m sample animated stream alert to test out your broadcast layout setup.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/copzec" target="_blank" class="btn btn-free">Get Free</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Free WebM Sample Alert', 'https://vaultkeeper117.gumroad.com/l/copzec')">Live View</button>
-            </div>
-        </div>
-
-        <!-- 6. Standard MP4 Format Animated Alert -->
-        <div class="card">
-            <div>
-                <h3>6. Standard MP4 Format Animated Alert</h3>
-                <p>Smooth, professional animated stream alerts optimized for broad compatibility across streaming platforms.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/dkmedq" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Standard MP4 Animated Alert', 'https://vaultkeeper117.gumroad.com/l/dkmedq')">Live View</button>
-            </div>
-        </div>
-
-        <!-- 7. Pixel Art Ninja Cat -->
-        <div class="card">
-            <div>
-                <h3>7. Pixel Art Ninja Cat [Static & Avatars]</h3>
-                <p>Detailed static pixel art graphics and 512px Discord avatars featuring a stealthy ninja cat theme.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/lhhxej" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Pixel Art Ninja Cat', 'https://vaultkeeper117.gumroad.com/l/lhhxej')">Live View</button>
-            </div>
-        </div>
-
-        <!-- 8. WebM Animated Alert File -->
-        <div class="card">
-            <div>
-                <h3>8. WebM Animated Alert File</h3>
-                <p>Transparent background WebM animated alerts built explicitly for seamless overlay integration in OBS/Streamlabs.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/fanvlu" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('WebM Animated Alert File', 'https://vaultkeeper117.gumroad.com/l/fanvlu')">Live View</button>
-            </div>
-        </div>
-
-        <!-- 9. YouTube-MP4 Animated Alert File -->
-        <div class="card">
-            <div>
-                <h3>9. YouTube-MP4 Animated Alert File</h3>
-                <p>Custom-tailored animated stream alerts formatted perfectly for YouTube live broadcasting setups.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/aihkjh" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('YouTube-MP4 Animated Alert', 'https://vaultkeeper117.gumroad.com/l/aihkjh')">Live View</button>
-            </div>
-        </div>
-
-        <!-- 10. Calm Aesthetic Wallpaper Bundle -->
-        <div class="card">
-            <div>
-                <h3>10. 📱 Calm Aesthetic Wallpaper Bundle</h3>
-                <p>Gumroad-ready soothing and minimal aesthetic wallpapers to elevate your desktop or mobile home screen.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/echfl" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Calm Aesthetic Wallpaper Bundle', 'https://vaultkeeper117.gumroad.com/l/echfl')">Live View</button>
-            </div>
-        </div>
-
-        <!-- 11. Resume & CV Studio App Hub -->
-        <div class="card">
-            <div>
-                <h3>11. Resume & CV Studio</h3>
+                <h3>Resume &amp; CV Studio</h3>
                 <p>Build ATS-optimized resumes and professional digital portfolios to stand out to recruiters instantly.</p>
             </div>
             <div class="btn-group">
@@ -462,46 +274,34 @@
             </div>
         </div>
 
-        <!-- 12. Invoice Studio App Hub -->
+        <!-- Invoice Studio -->
         <div class="card">
             <div>
-                <h3>12. Invoice Studio</h3>
+                <h3>Invoice Studio</h3>
                 <p>Clean, professional, and fast invoicing and billing tool built specifically for freelancers and small businesses.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Invoice Studio', 'https://handlevault-official.github.io/crisp-invoice-studio')">Live View</button>
+                <button class="btn btn-liveview" onclick="openLiveView('Invoice Studio', 'https://handlevault-official.github.io/crisp-invoice-studio/')">Live View</button>
             </div>
         </div>
 
-        <!-- 13. GitVoice Clinical Dashboard Hub -->
+        <!-- GitVoice Clinical Dashboard -->
         <div class="card">
             <div>
-                <h3>13. GitVoice Clinical Dashboard</h3>
+                <h3>GitVoice Clinical Dashboard</h3>
                 <p>AI-powered medical and professional voice-to-text assistant for quick and accurate transcriptions.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('GitVoice Clinical Dashboard', 'https://handlevault-official.github.io/gitvoice-clinical-dashboard/')">Live View</button>
+                <button class="btn btn-liveview" onclick="openLiveView('GitVoice Clinical Dashboard', 'https://handlevault-official.github.io/crisp-gitvoice-clinical-dashboard/')">Live View</button>
             </div>
         </div>
 
-
-        <!-- 14. HandleVault Official Ko-fi Support Hub -->
-        <div class="card" style="border-color: var(--btn-kofi);">
+        <!-- Kusina AI -->
+        <div class="card">
             <div>
-                <h3>14. ☕ HandleVault Ko-fi Support Hub</h3>
-                <p>Support our ongoing development, open-source repositories, and creator tools directly via Ko-fi.</p>
-            </div>
-            <div class="btn-group">
-                <a href="https://ko-fi.com/handlevaultofficial" target="_blank" class="btn btn-kofi" style="width: 100%;">Support on Ko-fi</a>
-            </div>
-        </div>
-        
-        <!-- 15. Kusina AI - Viral Food Caption Generator -->
-        <div class="card" style="border-color: var(--accent-color);">
-            <div>
-                <h3>15. 🍔 Kusina AI - Viral Food Caption Generator</h3>
+                <h3>Kusina AI</h3>
                 <p>AI-powered web app designed for food business owners and online sellers to generate high-converting Taglish captions and TikTok hooks.</p>
             </div>
             <div class="btn-group">
@@ -510,11 +310,11 @@
             </div>
         </div>
 
-        <!-- 16. Crisp Creator Studio -->
-        <div class="card" style="border-color: #ef4444;">
+        <!-- Crisp Creator Studio -->
+        <div class="card">
             <div>
-                <h3>16. 🎬 Crisp Creator Studio</h3>
-                <p>All-in-one YouTube & creator packaging studio to generate high-CTR titles, thumbnail concepts, 15-second retention hooks, and SEO scripts in English & Taglish.</p>
+                <h3>Crisp Creator Studio</h3>
+                <p>All-in-one YouTube &amp; creator packaging studio to generate high-CTR titles, thumbnail concepts, and SEO scripts.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
@@ -522,11 +322,11 @@
             </div>
         </div>
 
-       <!-- 17. Crisp Math Studio -->
-         <div class="card" style="border-color: #38bdf8;">
+        <!-- Crisp Math Studio -->
+        <div class="card">
             <div>
-                <h3>17. 🧮 Crisp Math Studio</h3>
-                <p>Local-first offline math workshop and business calculator featuring a running history tape, retail markup/margin solvers, and ergonomic Night/Day shift themes.</p>
+                <h3>Crisp Math Studio</h3>
+                <p>Local-first offline math workshop and business calculator featuring a running history tape and retail markup solvers.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
@@ -534,11 +334,11 @@
             </div>
         </div>
 
-       <!-- 18. Crisp Science Studio -->
-        <div class="card" style="border-color: #10b981;">
+        <!-- Crisp Science Studio -->
+        <div class="card">
             <div>
-                <h3>18. 🔬 Crisp Science Studio</h3>
-                <p>Local-first offline science workshop and lab calculator featuring density & gas law solvers, unit converters, and ergonomic Night/Day shift themes.</p>
+                <h3>Crisp Science Studio</h3>
+                <p>Local-first offline science workshop and lab calculator featuring density &amp; gas law solvers and unit converters.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
@@ -546,24 +346,23 @@
             </div>
         </div>
 
-        <!-- 19. Crisp Study Studio -->
-        <div class="card" style="border-color: #8b5cf6;">
+        <!-- Crisp Study Studio -->
+        <div class="card">
             <div>
-                <h3>19. 📚 Crisp Study Studio</h3>
-                <p>Local-first offline study assistant featuring a Pomodoro focus timer, interactive flashcards, task tracker, and ergonomic Night/Day shift themes.</p>
+                <h3>Crisp Study Studio</h3>
+                <p>Local-first offline study assistant featuring a Pomodoro focus timer, interactive flashcards, and task tracker.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
                 <button class="btn btn-liveview" onclick="openLiveView('Crisp Study Studio', 'https://handlevault-official.github.io/crisp-study-studio/')">Live View</button>
             </div>
         </div>
-        
 
-   <!-- 20. Crisp Music Studio -->
-        <div class="card" style="border-color: #f43f5e;">
+        <!-- Crisp Music Studio -->
+        <div class="card">
             <div>
-                <h3>20. 🎵 Crisp Music Studio</h3>
-                <p>Local-first offline music workshop featuring a chord progression generator, Web Audio API metronome, tap tempo, and ergonomic Night/Day shift themes.</p>
+                <h3>Crisp Music Studio</h3>
+                <p>Local-first offline music workshop featuring a chord progression generator and Web Audio API metronome.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
@@ -571,11 +370,11 @@
             </div>
         </div>
 
-    <!-- 21. Crisp Farm Voice Studio -->
-        <div class="card" style="border-color: #10b981;">
+        <!-- Crisp Farm Voice Studio -->
+        <div class="card">
             <div>
-                <h3>21. 🌾 Crisp Farm Voice Studio</h3>
-                <p>Local-first offline agricultural workshop featuring a voice-enabled field logger, farm chore checklist, offline crop guide, and ergonomic Night/Day shift themes.</p>
+                <h3>Crisp Farm Voice Studio</h3>
+                <p>Local-first offline agricultural workshop featuring a voice-enabled field logger and farm chore checklist.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
@@ -583,11 +382,11 @@
             </div>
         </div>
 
-     <!-- 22. Crisp Senior Studio -->
-        <div class="card" style="border-color: #0ea5e9;">
+        <!-- Crisp Senior Studio -->
+        <div class="card">
             <div>
-                <h3>22. 🛡️ Crisp Senior Studio</h3>
-                <p>Local-first offline health and daily care assistant featuring medication reminders, vital signs health logging, emergency SOS hub, and high-contrast accessibility themes.</p>
+                <h3>Crisp Senior Studio</h3>
+                <p>Local-first offline health and daily care assistant featuring medication reminders and emergency SOS hub.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
@@ -595,11 +394,11 @@
             </div>
         </div>
 
-    <!-- 23. Crisp Kids Studio -->
-        <div class="card" style="border-color: #f43f5e;">
+        <!-- Crisp Kids Studio -->
+        <div class="card">
             <div>
-                <h3>23. 🎨 Crisp Kids Studio</h3>
-                <p>Local-first offline educational workshop featuring ABC &amp; 123 flashcards, magical doodle canvas drawing pad, daily routine star checklist, and playful themes.</p>
+                <h3>Crisp Kids Studio</h3>
+                <p>Local-first offline educational workshop featuring ABC &amp; 123 flashcards and magical doodle canvas drawing pad.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
@@ -607,11 +406,11 @@
             </div>
         </div>
 
-     <!-- 24. Crisp Game Studio -->
-        <div class="card" style="border-color: #8b5cf6;">
+        <!-- Crisp Game Studio -->
+        <div class="card">
             <div>
-                <h3>24. 🎮 Crisp Game Studio</h3>
-                <p>Local-first indie game development workshop featuring a GDD milestone checklist, FPS/ms game math calculators, tilemap memory estimator, and asset tracking.</p>
+                <h3>Crisp Game Studio</h3>
+                <p>Local-first indie game development workshop featuring a GDD milestone checklist and game math calculators.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
@@ -619,31 +418,124 @@
             </div>
         </div>
 
-      <!-- 25. Crisp Expense Studio -->
-        <div class="card" style="border-color: #10b981;">
+        <!-- Crisp Expense Studio -->
+        <div class="card">
             <div>
-                <h3>25. 💰 Crisp Expense Studio</h3>
-                <p>Local-first offline daily expense tracker and budget manager featuring category breakdowns, custom spending limits, and transaction history.</p>
+                <h3>Crisp Expense Studio</h3>
+                <p>Local-first offline daily expense tracker and budget manager featuring category breakdowns and transaction history.</p>
             </div>
             <div class="btn-group">
                 <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
                 <button class="btn btn-liveview" onclick="openLiveView('Crisp Expense Studio', 'https://handlevault-official.github.io/crisp-expense-studio/')">Live View</button>
             </div>
         </div>
+
+    </div>
+
+    <!-- 💎 GUMROAD STORE HUB & DIGITAL ASSETS -->
+    <div class="section-title">💎 Gumroad Store Hub &amp; Digital Assets</div>
+    <div class="container">
         
-        <!-- 26. Crisp Gate Invite -->
-        <div class="card" style="border-color: #f43f5e;">
+        <!-- Crisp Suite Studio Hub (All-Access Pass) -->
+        <div class="card" style="border-color: var(--btn-gumroad);">
             <div>
-                <h3>26. 💌 Crisp Gate Invite</h3>
-                <p>Interactive Q&A-gated digital invitation system for weddings and dates featuring identity verification, budget-share computation, and envelope UI.</p>
+                <h3>Crisp Suite Studio Hub (All-Access Pass)</h3>
+                <p>Unlock the ultimate master bundle containing access to all productivity applications and design suites.</p>
             </div>
             <div class="btn-group">
-                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
-                <button class="btn btn-liveview" onclick="openLiveView('Crisp Gate Invite', 'https://handlevault-official.github.io/crisp-gate-invite/')">Live View</button>
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy" style="flex: 2;">Get All-Access Pass</a>
             </div>
         </div>
-        
-    </div> <!-- Katapusan ng .container grid -->
+
+        <!-- Universal Product Template (Pixel Art Pack) -->
+        <div class="card">
+            <div>
+                <h3>Universal Product Template (Pixel Art Pack)</h3>
+                <p>High-quality adaptable assets and templates designed for retro games, creators, and digital art projects.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" class="btn btn-buy" style="flex: 2;">Get Pixel Art Pack</a>
+            </div>
+        </div>
+
+    <!-- Universal Product Template (Pixel Art Pack) -->
+        <div class="card">
+            <div>
+                <h3>Universal Product Template (Pixel Art Pack)</h3>
+                <p>High-quality adaptable assets and templates designed for retro games, creators, and digital art projects.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" class="btn btn-buy" style="flex: 2;">Get Pixel Art Pack</a>
+            </div>
+        </div>
+
+        <!-- Free WebM Sample Alert -->
+        <div class="card">
+            <div>
+                <h3>Free WebM Sample Alert (Resub #3)</h3>
+                <p>Grab your free web-m sample animated stream alert to test out your broadcast layout setup.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/copzec" target="_blank" class="btn btn-buy" style="flex: 2; background-color: #34d399;">Get Free Alert</a>
+            </div>
+        </div>
+
+        <!-- Standard MP4 Format Animated Alert File -->
+        <div class="card">
+            <div>
+                <h3>Standard MP4 Format Animated Alert File</h3>
+                <p>Smooth, professional animated stream alerts optimized for broad compatibility across streaming platforms.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/dkmedq" target="_blank" class="btn btn-buy" style="flex: 2;">Get MP4 Alert</a>
+            </div>
+        </div>
+
+        <!-- Pixel Art Ninja Cat -->
+        <div class="card">
+            <div>
+                <h3>Pixel Art Ninja Cat (Static Images &amp; 512px Avatars)</h3>
+                <p>Detailed static pixel art graphics and 512px Discord avatars featuring a stealthy ninja cat theme.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/lhhxej" target="_blank" class="btn btn-buy" style="flex: 2;">Get Ninja Cat Pack</a>
+            </div>
+        </div>
+
+        <!-- WebM Animated Alert File -->
+        <div class="card">
+            <div>
+                <h3>WebM Animated Alert File</h3>
+                <p>Transparent background WebM animated alerts built explicitly for seamless overlay integration in OBS/Streamlabs.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/fanvlu" target="_blank" class="btn btn-buy" style="flex: 2;">Get WebM Alert</a>
+            </div>
+        </div>
+
+        <!-- YouTube-MP4 Animated Alert File -->
+        <div class="card">
+            <div>
+                <h3>YouTube-MP4 Animated Alert File</h3>
+                <p>Custom-tailored animated stream alerts formatted perfectly for YouTube live broadcasting setups.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/aihkjh" target="_blank" class="btn btn-buy" style="flex: 2;">Get YouTube Alert</a>
+            </div>
+        </div>
+
+        <!-- Calm Aesthetic Wallpaper Bundle -->
+        <div class="card">
+            <div>
+                <h3>Calm Aesthetic Wallpaper Bundle</h3>
+                <p>Gumroad-ready soothing and minimal aesthetic wallpapers to elevate your desktop or mobile home screen.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/echfl" target="_blank" class="btn btn-buy" style="flex: 2;">Get Wallpapers</a>
+            </div>
+        </div>
+
+    </div>
 
     <!-- Live Preview Modal Overlay -->
     <div id="live-modal">
@@ -655,56 +547,6 @@
             <iframe id="live-iframe" src="" title="App Live View"></iframe>
         </div>
     </div>
-
-    <!-- Live Flashing Text Ads & Updates Ticker Bar -->
-    <div class="flash-ticker-bar">
-        <div class="flash-badge">📢 FLASH ALERT</div>
-        <div class="ticker-wrap">
-            <div class="ticker-content">
-                <span>☕ <strong>Break Time Alert:</strong> Rest your eyes and stretch every 4.5 hours!</span>
-                <span>💡 <strong>Text Ad:</strong> Grab your all-access pass at <a href="https://vaultkeeper117.gumroad.com" target="_blank">HandleVault Store</a></span>
-                <span>🚀 <strong>System Update:</strong> Repositories are private, live views accessible exclusively via homepage!</span>
-                <span>💬 <strong>Tip:</strong> Click "Live View" on any app card to preview it instantly in the modal viewer.</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- All-in-One Bottom Hub: Text Ads, News, Updates, Comments & Suggestions -->
-    <div class="bottom-hub">
-        <!-- Text Ads Box -->
-        <div class="hub-box">
-            <h3>📢 Sponsored Text Ads</h3>
-            <div class="text-ad">
-                <strong>Featured Tool:</strong> Boost your productivity today with <a href="https://vaultkeeper117.gumroad.com" target="_blank">HandleVault Passes & Bundles</a>. Get instant access!
-            </div>
-            <div class="text-ad">
-                <strong>Support Open Source:</strong> Sponsor our ongoing development on <a href="https://github.com/sponsors/handlevault-official" target="_blank">GitHub Sponsors</a>.
-            </div>
-        </div>
-
-        <!-- News & Updates Box -->
-        <div class="hub-box">
-            <h3>🚀 News & Updates</h3>
-            <ul>
-                <li><strong>Private Repos Security:</strong> Individual app repos are now private; all live previews are securely centralized right here.</li>
-                <li><strong>Repository Sync:</strong> All offline and web tools synchronized successfully.</li>
-                <li><strong>Ko-fi Milestone:</strong> Special thanks to all supporters backing our creative utilities!</li>
-            </ul>
-        </div>
-
-        <!-- Comments, Suggestions & Info Box -->
-        <div class="hub-box">
-            <h3>💬 Comments, Suggestions & Info</h3>
-            <ul>
-                <li><strong>Feedback:</strong> Have tool suggestions or bug reports? Contact us via support channels.</li>
-                <li><strong>Community:</strong> Join discussions and share your setups via our support channels.</li>
-                <li><strong>Other Info:</strong> All web apps are built for high performance and seamless creator workflows.</li>
-            </ul>
-        </div>
-    </div>
-    
-    <!-- I-link mo dito ang repo.js -->
-    <script src="repo.js"></script>
 
     <script>
         function openLiveView(appName, appUrl) {
@@ -721,31 +563,21 @@
             const modal = document.getElementById('live-modal');
             const iframe = document.getElementById('live-iframe');
             
-            iframe.src = ''; // Stop loading / reset
+            iframe.src = ''; 
             modal.style.display = 'none';
         }
 
-        // Close modal when clicking outside content wrapper
         window.onclick = function(event) {
             const modal = document.getElementById('live-modal');
             if (event.target === modal) {
                 closeLiveView();
             }
         }
-
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then((reg) => console.log('Service Worker registered! Scope:', reg.scope))
-                    .catch((err) => console.log('Service Worker registration failed:', err));
-            });
-        }
     </script>
 
     <footer>
-        <p>&copy; 2026 Crisp Suite / HandleVault Official. All rights reserved. Powered by Ko-fi, Gumroad, GitHub, Replit, Claude, Gemini AI, ChatGPT, Adobe Firefly & Google AI Studio.</p>
+        <p>&copy; 2026 Crisp Suite / HandleVault Official. All rights reserved.</p>
     </footer> 
-    
+
 </body>
 </html>
-
