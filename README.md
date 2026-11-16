@@ -25,7 +25,6 @@ Crisp Suite integrates automated platform sales (Gumroad, Ko-fi) and manual loca
 
 ## 💎 Gumroad Store Hub & Digital Assets
 * **Main Store:** https://vaultkeeper117.gumroad.com
-* **Ecosystem Master Pass Bundle (₱4,999):** https://vaultkeeper117.gumroad.com/l/vmmdiz
 * **HandleVault Studio Hub (Individual Pack (₱1,999):** https://vaultkeeper117.gumroad.com/l/ztzxpg
 * **Universal Product Template (Pixel Art Pack):** https://vaultkeeper117.gumroad.com/l/xwzxwp
 * **Free WebM Sample Alert (Resub #3):** https://vaultkeeper117.gumroad.com/l/copzec
