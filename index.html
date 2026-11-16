@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crisp Suite Marketplace | HandleVault Official Hub</title>
+    <title>Crisp Suite Ecosystem Hub | HandleVault Official</title>
     <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
     <link rel="manifest" href="manifest.json">
     <style>
         :root {
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --header-bg: #0f172a;
-            --accent-color: #0284c7;
-            --accent-hover: #0369a1;
-            --text-color: #0f172a;
-            --text-secondary: #64748b;
-            --border-color: #e2e8f0;
-            --price-color: #f97316;
-            --tag-bg: #e0f2fe;
-            --tag-text: #0369a1;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --card-hover: #273548;
+            --accent-color: #38bdf8;
+            --text-color: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --border-hover: #38bdf8;
+            --btn-bg: #334155;
+            --btn-hover: #475569;
+            --btn-text: #f8fafc;
+            --btn-app: #38bdf8;
+            --btn-buy: #ff90e8;
+            --btn-free: #34d399;
+            --btn-kofi: #ff5e5b;
+            --price-color: #34d399;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -31,657 +36,776 @@
             align-items: center;
             min-height: 100vh;
         }
-        .marketplace-header {
-            background-color: var(--header-bg);
-            color: #ffffff;
-            width: 100%;
-            padding: 20px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        header {
+            text-align: center;
+            padding: 45px 20px 20px;
+            max-width: 800px;
         }
-        .header-content {
-            max-width: 1200px;
-            width: 92%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .brand-title {
-            font-size: 1.5rem;
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
             font-weight: 700;
-            color: #38bdf8;
-            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 0 auto;
+        }
+        .ecosystem-nav {
             display: flex;
-            align-items: center;
-            gap: 8px;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0 25px;
+            padding: 0 20px;
         }
-        .marketplace-nav {
-            display: flex;
-            gap: 15px;
-            font-size: 0.9rem;
-        }
-        .marketplace-nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .marketplace-nav a:hover {
-            color: #ffffff;
-        }
-        .hero-banner {
-            max-width: 1200px;
-            width: 92%;
-            margin: 25px auto 15px;
-            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-            border-radius: 12px;
-            color: white;
-            padding: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.2);
-        }
-        .hero-text h2 {
-            margin: 0 0 10px 0;
-            font-size: 1.8rem;
-        }
-        .hero-text p {
-            margin: 0;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            max-width: 600px;
-            line-height: 1.5;
-        }
-        .hero-btn {
-            background-color: #ffffff;
-            color: #0284c7;
-            padding: 10px 20px;
+        .nav-link {
+            padding: 8px 16px;
             border-radius: 8px;
+            font-weight: 500;
             text-decoration: none;
-            font-weight: 600;
+            color: var(--text-color);
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
             font-size: 0.9rem;
-            white-space: nowrap;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: background-color 0.2s;
+            transition: all 0.2s ease;
         }
-        .hero-btn:hover {
-            background-color: #f1f5f9;
+        .nav-link:hover {
+            border-color: var(--accent-color);
+            background-color: var(--card-hover);
         }
-        .marketplace-container {
-            max-width: 1200px;
-            width: 92%;
-            margin: 10px auto 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 16px;
-        }
-        .product-card {
+
+        /* Flash Ticker Bar */
+        .flash-ticker-bar {
+            max-width: 1100px;
+            width: 90%;
+            margin: 0 auto 25px;
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 16px;
+            padding: 10px 14px;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
-        }
-        .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            border-color: #cbd5e1;
-        }
-        .product-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background-color: var(--tag-bg);
-            color: var(--tag-text);
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-        }
-        .product-price {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--price-color);
-            margin: 8px 0;
-        }
-        .product-card h3 {
-            margin: 0 0 6px 0;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-color);
-            padding-right: 50px;
-        }
-        .product-card p {
-            color: var(--text-secondary);
-            font-size: 0.82rem;
-            line-height: 1.4;
-            margin-bottom: 14px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .product-footer {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: auto;
-        }
-        .product-actions {
-            display: flex;
-            gap: 6px;
-        }
-        .marketplace-btn {
-            flex: 1;
-            padding: 7px 10px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.78rem;
-            text-align: center;
-            transition: background-color 0.15s;
-        }
-        .btn-launch {
-            background-color: #f1f5f9;
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-        }
-        .btn-launch:hover {
-            background-color: #e2e8f0;
-        }
-        .btn-buy {
-            background-color: var(--accent-color);
-            color: #ffffff;
-        }
-        .btn-buy:hover {
-            background-color: var(--accent-hover);
-        }
-        .marketplace-notice {
-            max-width: 1200px;
-            width: 92%;
-            margin: 0 auto 30px;
-            background-color: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
+            overflow: hidden;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
         }
-        .notice-text h4 {
-            margin: 0 0 5px 0;
-            color: var(--text-color);
-            font-size: 0.95rem;
+        .flash-badge {
+            background-color: var(--accent-color);
+            color: #0f172a;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-right: 12px;
+            white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
-        .notice-text p {
-            margin: 0;
+        .ticker-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+        .ticker-content {
+            display: inline-block;
+            animation: tickerScroll 30s linear infinite;
             font-size: 0.85rem;
             color: var(--text-secondary);
         }
+        .ticker-content span {
+            margin-right: 40px;
+        }
+        .ticker-content a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .ticker-content a:hover {
+            text-decoration: underline;
+        }
+        @keyframes tickerScroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Payment & Transaction Banner */
+        .payment-banner {
+            max-width: 1100px;
+            width: 90%;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+            border-left: 4px solid var(--btn-free);
+            border-radius: 10px;
+            padding: 22px 24px;
+        }
+        .payment-banner h3 {
+            color: var(--btn-free);
+            margin-top: 0;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+        .payment-banner p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0 0 15px 0;
+        }
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+        }
+        .payment-box {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 12px 14px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+        .payment-box strong {
+            color: var(--text-color);
+        }
+        .payment-box a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        .payment-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Container Grid */
+        .container {
+            max-width: 1100px;
+            width: 90%;
+            margin: 0 auto 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-hover);
+            background-color: var(--card-hover);
+        }
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        .card h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        .price-tag {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--price-color);
+            background: rgba(52, 211, 153, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            flex: 1;
+            min-width: 90px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 8px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.82rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: all 0.15s ease;
+        }
+        .btn:hover {
+            background-color: var(--btn-hover);
+            border-color: var(--accent-color);
+        }
+        .btn-app {
+            background-color: rgba(56, 189, 248, 0.12);
+            color: var(--accent-color);
+            border-color: rgba(56, 189, 248, 0.3);
+            font-weight: 600;
+        }
+        .btn-app:hover {
+            background-color: rgba(56, 189, 248, 0.22);
+            border-color: var(--accent-color);
+        }
+        .btn-buy {
+            background-color: rgba(255, 144, 232, 0.12);
+            color: var(--btn-buy);
+            border-color: rgba(255, 144, 232, 0.3);
+            font-weight: 600;
+        }
+        .btn-buy:hover {
+            background-color: rgba(255, 144, 232, 0.22);
+            border-color: var(--btn-buy);
+        }
+        .btn-free {
+            background-color: rgba(52, 211, 153, 0.12);
+            color: var(--btn-free);
+            border-color: rgba(52, 211, 153, 0.3);
+            font-weight: 600;
+        }
+        .btn-free:hover {
+            background-color: rgba(52, 211, 153, 0.22);
+            border-color: var(--btn-free);
+        }
+        .btn-kofi {
+            background-color: rgba(255, 94, 91, 0.15);
+            color: var(--btn-kofi);
+            border-color: rgba(255, 94, 91, 0.3);
+            font-weight: 600;
+        }
+        .btn-kofi:hover {
+            background-color: rgba(255, 94, 91, 0.25);
+            border-color: var(--btn-kofi);
+        }
+
+        /* Bottom Hub Sections (News, Updates, Comments) */
+        .bottom-hub {
+            max-width: 1100px;
+            width: 90%;
+            margin: 0 auto 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .hub-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .hub-box h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+            font-size: 1.05rem;
+            margin-bottom: 14px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+        .text-ad {
+            background: rgba(56, 189, 248, 0.05);
+            border-left: 3px solid var(--accent-color);
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.83rem;
+            color: var(--text-secondary);
+        }
+        .text-ad a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hub-box ul {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+            padding-left: 18px;
+            font-size: 0.85rem;
+        }
+        .hub-box li {
+            margin-bottom: 6px;
+        }
+
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             color: var(--text-secondary);
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             border-top: 1px solid var(--border-color);
             width: 100%;
-            background-color: #ffffff;
             margin-top: auto;
-        }
-        @media (max-width: 768px) {
-            .hero-banner {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Marketplace Header -->
-    <div class="marketplace-header">
-        <div class="header-content">
-            <a href="#" class="brand-title">🛍️ Crisp Suite Store</a>
-            <div class="marketplace-nav">
-                <a href="https://vaultkeeper117.gumroad.com" target="_blank">Gumroad Store</a>
-                <a href="https://ko-fi.com/handlevaultofficial" target="_blank">Ko-fi Support</a>
-                <a href="https://replit.com/@handlevault" target="_blank">Workspace</a>
+    <header>
+        <h1>Crisp Suite Ecosystem Hub</h1>
+        <p>Your centralized workspace for professional productivity tools, creator assets, and offline-first web applications. All source codes are securely housed in private repositories with instant live views.</p>
+    </header>
+
+    <!-- Navigation Hub -->
+    <div class="ecosystem-nav">
+        <a href="https://ko-fi.com/handlevaultofficial" target="_blank" class="nav-link">☕ Support on Ko-fi</a>
+        <a href="https://replit.com/@handlevault" target="_blank" class="nav-link">⚡ Replit Workspace</a>
+        <a href="https://aistudio.google.com" target="_blank" class="nav-link">✨ Google AI Studio</a>
+    </div>
+
+    <!-- Live Flashing Ticker Bar -->
+    <div class="flash-ticker-bar">
+        <div class="flash-badge">📢 FLASH ALERT</div>
+        <div class="ticker-wrap">
+            <div class="ticker-content">
+                <span>☕ <strong>Break Reminder:</strong> Rest your eyes and stretch every 4.5 hours!</span>
+                <span>💡 <strong>Store Update:</strong> Grab your all-access pass at <a href="https://vaultkeeper117.gumroad.com" target="_blank">HandleVault Store</a></span>
+                <span>🚀 <strong>System Status:</strong> All 26 offline apps &amp; payment channels fully synchronized!</span>
             </div>
         </div>
     </div>
 
-    <!-- Featured Promo Banner -->
-    <div class="hero-banner">
-        <div class="hero-text">
-            <h2>Crisp Suite Ecosystem Hub &amp; All-Access Pass</h2>
-            <p>Explore our complete inventory of offline-first web applications, creator assets, and utilities. Protected source code with live preview support.</p>
+    <!-- Payment & Verification Hub Banner -->
+    <div class="payment-banner">
+        <h3>💳 Crisp Suite Payment &amp; Transaction Hub</h3>
+        <p>We support both automated digital delivery (Gumroad, Ko-fi) and secure manual local payments (GCash, Maya, Maya Bank) for licensing and master keys.</p>
+        <div class="payment-grid">
+            <div class="payment-box">
+                <strong>📱 GCash / Maya Direct:</strong> Available for local manual transfers. Send payment screenshot &amp; email via support channels for quick activation.
+            </div>
+            <div class="payment-box">
+                <strong>🏦 Maya Bank / Bank Transfer:</strong> Direct account transfers supported for bundles and app master keys.
+            </div>
+            <div class="payment-box">
+                <strong>🛍️ Automated Store:</strong> Instant digital delivery via our <a href="https://vaultkeeper117.gumroad.com" target="_blank">Gumroad Store</a>.
+            </div>
         </div>
-        <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="hero-btn">Get All-Access Pass</a>
     </div>
 
-    <!-- Marketplace Grid Products -->
-    <div class="marketplace-container">
-
+    <div class="container">
         <!-- 1. Crisp Gate Invite -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card" style="border-color: #f43f5e;">
             <div>
-                <h3>Crisp Gate Invite</h3>
-                <div class="product-price">₱499.00 / Code</div>
-                <p>Interactive Q&amp;A-gated digital invitation system for weddings and special events with guest identity verification &amp; envelope UI.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-gate-invite/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>1. 💌 Crisp Gate Invite</h3>
+                    <span class="price-tag">₱499.00</span>
                 </div>
+                <p>Interactive Q&amp;A-gated digital invitation system for weddings and dates featuring identity verification, budget-share computation, and envelope UI.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-gate-invite/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 2. Pixel Art Studio -->
-        <div class="product-card">
-            <span class="product-badge">Studio</span>
+        <div class="card">
             <div>
-                <h3>Pixel Art Studio</h3>
-                <div class="product-price">₱399.00 / Code</div>
-                <p>Create retro pixel art, game assets, and custom illustrations with a clean pixel scaling canvas workspace.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-pixel/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>2. 🎨 Pixel Art Studio</h3>
+                    <span class="price-tag">₱399.00</span>
                 </div>
+                <p>Create stunning retro pixel art, game assets, and digital illustrations with our crisp pixel scaling canvas.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-pixel/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 3. Moonlit Beads Blueprint -->
-        <div class="product-card">
-            <span class="product-badge">Tool</span>
+        <div class="card">
             <div>
-                <h3>Moonlit Beads Blueprint</h3>
-                <div class="product-price">₱499.00 / Code</div>
+                <div class="card-header-row">
+                    <h3>3. 📿 Moonlit Beads Blueprint</h3>
+                    <span class="price-tag">₱499.00</span>
+                </div>
                 <p>Dedicated creative design and pattern utility tool tailored specifically for crafters and beadwork artists.</p>
             </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-moonlit-beads-blueprint-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
-                </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-moonlit-beads-blueprint-studio/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 4. Universal Product Template (Pixel Art Pack) -->
-        <div class="product-card">
-            <span class="product-badge">Assets</span>
+        <div class="card">
             <div>
-                <h3>Pixel Art Pack Template</h3>
-                <div class="product-price">₱399.00 / Pack</div>
+                <div class="card-header-row">
+                    <h3>4. 📦 Universal Pixel Art Template</h3>
+                    <span class="price-tag">₱399.00</span>
+                </div>
                 <p>High-quality adaptable assets and templates designed for retro games, creators, and digital art projects.</p>
             </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" class="marketplace-btn btn-buy" style="flex: 1;">Get Code</a>
-                </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" class="btn btn-buy" style="flex: 1;">Buy Code</a>
             </div>
         </div>
 
         <!-- 5. FREE WEB-M SAMPLE ALERT -->
-        <div class="product-card">
-            <span class="product-badge" style="background:#dcfce7; color:#166534;">Free</span>
+        <div class="card" style="border-color: #34d399;">
             <div>
-                <h3>Free WebM Sample Alert</h3>
-                <div class="product-price" style="color:#166534;">FREE</div>
-                <p>Grab your free sample animated stream alert (Resub #3) to test out your broadcast layout setup effortlessly.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://vaultkeeper117.gumroad.com/l/copzec" target="_blank" class="marketplace-btn btn-buy" style="background:#22c55e; flex: 1;">Download Free</a>
+                <div class="card-header-row">
+                    <h3>5. 🎁 Free WebM Sample Alert</h3>
+                    <span class="price-tag" style="background: rgba(52,211,153,0.2); color: #34d399;">FREE</span>
                 </div>
+                <p>Grab your free web-m sample animated stream alert (Resub #3) to test out your broadcast layout setup.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/copzec" target="_blank" class="btn btn-free" style="flex: 1;">Download Free</a>
             </div>
         </div>
 
         <!-- 6. Standard MP4 Format Animated Alert -->
-        <div class="product-card">
-            <span class="product-badge">Media</span>
+        <div class="card">
             <div>
-                <h3>Standard MP4 Format Alert</h3>
-                <div class="product-price">₱299.00 / File</div>
+                <div class="card-header-row">
+                    <h3>6. 🎥 Standard MP4 Format Alert</h3>
+                    <span class="price-tag">₱299.00</span>
+                </div>
                 <p>Smooth, professional animated stream alerts optimized for broad compatibility across streaming platforms.</p>
             </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://vaultkeeper117.gumroad.com/l/dkmedq" target="_blank" class="marketplace-btn btn-buy" style="flex: 1;">Get Code</a>
-                </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/dkmedq" target="_blank" class="btn btn-buy" style="flex: 1;">Buy Code</a>
             </div>
         </div>
 
         <!-- 7. Pixel Art Ninja Cat -->
-        <div class="product-card">
-            <span class="product-badge">Assets</span>
+        <div class="card">
             <div>
-                <h3>Pixel Art Ninja Cat</h3>
-                <div class="product-price">₱249.00 / Bundle</div>
+                <div class="card-header-row">
+                    <h3>7. 🐱 Pixel Art Ninja Cat</h3>
+                    <span class="price-tag">₱249.00</span>
+                </div>
                 <p>Detailed static pixel art graphics and 512px Discord avatars featuring a stealthy ninja cat theme.</p>
             </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://vaultkeeper117.gumroad.com/l/lhhxej" target="_blank" class="marketplace-btn btn-buy" style="flex: 1;">Get Code</a>
-                </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/lhhxej" target="_blank" class="btn btn-buy" style="flex: 1;">Buy Code</a>
             </div>
         </div>
 
         <!-- 8. WebM Animated Alert File -->
-        <div class="product-card">
-            <span class="product-badge">Media</span>
+        <div class="card">
             <div>
-                <h3>WebM Animated Alert File</h3>
-                <div class="product-price">₱299.00 / File</div>
+                <div class="card-header-row">
+                    <h3>8. 🎬 WebM Animated Alert File</h3>
+                    <span class="price-tag">₱299.00</span>
+                </div>
                 <p>Transparent background WebM animated alerts built explicitly for seamless overlay integration in OBS/Streamlabs.</p>
             </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://vaultkeeper117.gumroad.com/l/fanvlu" target="_blank" class="marketplace-btn btn-buy" style="flex: 1;">Get Code</a>
-                </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/fanvlu" target="_blank" class="btn btn-buy" style="flex: 1;">Buy Code</a>
             </div>
         </div>
 
         <!-- 9. YouTube-MP4 Animated Alert File -->
-        <div class="product-card">
-            <span class="product-badge">Media</span>
+        <div class="card">
             <div>
-                <h3>YouTube-MP4 Alert File</h3>
-                <div class="product-price">₱299.00 / File</div>
+                <div class="card-header-row">
+                    <h3>9. 📺 YouTube-MP4 Animated Alert</h3>
+                    <span class="price-tag">₱299.00</span>
+                </div>
                 <p>Custom-tailored animated stream alerts formatted perfectly for YouTube live broadcasting setups.</p>
             </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://vaultkeeper117.gumroad.com/l/aihkjh" target="_blank" class="marketplace-btn btn-buy" style="flex: 1;">Get Code</a>
-                </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/aihkjh" target="_blank" class="btn btn-buy" style="flex: 1;">Buy Code</a>
             </div>
         </div>
 
         <!-- 10. Calm Aesthetic Wallpaper Bundle -->
-        <div class="product-card">
-            <span class="product-badge">Assets</span>
+        <div class="card">
             <div>
-                <h3>Aesthetic Wallpaper Bundle</h3>
-                <div class="product-price">₱199.00 / Bundle</div>
+                <div class="card-header-row">
+                    <h3>10. 📱 Aesthetic Wallpaper Bundle</h3>
+                    <span class="price-tag">₱199.00</span>
+                </div>
                 <p>Gumroad-ready soothing and minimal aesthetic wallpapers to elevate your desktop or mobile home screen.</p>
             </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://vaultkeeper117.gumroad.com/l/echfl" target="_blank" class="marketplace-btn btn-buy" style="flex: 1;">Get Code</a>
-                </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/echfl" target="_blank" class="btn btn-buy" style="flex: 1;">Buy Code</a>
             </div>
         </div>
 
         <!-- 11. Resume & CV Studio -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card">
             <div>
-                <h3>Resume &amp; CV Studio</h3>
-                <div class="product-price">₱499.00 / Code</div>
+                <div class="card-header-row">
+                    <h3>11. 📄 Resume &amp; CV Studio</h3>
+                    <span class="price-tag">₱499.00</span>
+                </div>
                 <p>Build ATS-optimized resumes and professional digital portfolios to stand out to recruiters instantly.</p>
             </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-resume-CV-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
-                </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-resume-CV-studio/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 12. Invoice Studio -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card">
             <div>
-                <h3>Invoice Studio</h3>
-                <div class="product-price">₱499.00 / Code</div>
+                <div class="card-header-row">
+                    <h3>12. 🧾 Invoice Studio</h3>
+                    <span class="price-tag">₱499.00</span>
+                </div>
                 <p>Clean, professional, and fast invoicing and billing tool built specifically for freelancers and small businesses.</p>
             </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-invoice-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
-                </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-invoice-studio/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 13. GitVoice Clinical Dashboard -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card">
             <div>
-                <h3>GitVoice Clinical Dashboard</h3>
-                <div class="product-price">₱499.00 / Code</div>
+                <div class="card-header-row">
+                    <h3>13. 🎙️ GitVoice Clinical Dashboard</h3>
+                    <span class="price-tag">₱499.00</span>
+                </div>
                 <p>AI-powered medical and professional voice-to-text assistant for quick and accurate transcriptions.</p>
             </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/gitvoice-clinical-dashboard/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
-                </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/gitvoice-clinical-dashboard/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 14. Kusina AI -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card">
             <div>
-                <h3>Kusina AI Caption Generator</h3>
-                <div class="product-price">₱499.00 / Code</div>
-                <p>AI-powered web app for food business owners to generate high-converting Taglish captions and TikTok hooks.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/kusina-ai/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>14. 🍔 Kusina AI Caption Generator</h3>
+                    <span class="price-tag">₱499.00</span>
                 </div>
+                <p>AI-powered web app for food business owners and online sellers to generate high-converting Taglish captions and TikTok hooks.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/kusina-ai/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
-        
         <!-- 15. Crisp Creator Studio -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card" style="border-color: #ef4444;">
             <div>
-                <h3>Crisp Creator Studio</h3>
-                <div class="product-price">₱499.00 / Code</div>
-                <p>All-in-one YouTube creator packaging studio to generate high-CTR titles, thumbnails, and retention hooks.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-creator-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>15. 🎬 Crisp Creator Studio</h3>
+                    <span class="price-tag">₱499.00</span>
                 </div>
+                <p>All-in-one YouTube &amp; creator packaging studio to generate high-CTR titles, thumbnail concepts, and retention hooks.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-creator-studio/" target="_blank" class="btn btn-app" style="background-color: #ef4444; color: white; border-color: #ef4444;">Launch App</a>
             </div>
         </div>
 
         <!-- 16. Crisp Math Studio -->
-         <div class="product-card">
-            <span class="product-badge">App</span>
+         <div class="card">
             <div>
-                <h3>Crisp Math Studio</h3>
-                <div class="product-price">₱499.00 / Code</div>
-                <p>Local-first offline math workshop and business calculator featuring running history and margin solvers.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-math-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>16. 🧮 Crisp Math Studio</h3>
+                    <span class="price-tag">₱499.00</span>
                 </div>
+                <p>Local-first offline math workshop and business calculator featuring a running history tape and retail markup solvers.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-math-studio/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
       <!-- 17. Crisp Science Studio -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card">
             <div>
-                <h3>Crisp Science Studio</h3>
-                <div class="product-price">₱499.00 / Code</div>
-                <p>Local-first offline science workshop and lab calculator featuring density &amp; gas law solvers.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-science-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>17. 🔬 Crisp Science Studio</h3>
+                    <span class="price-tag">₱499.00</span>
                 </div>
+                <p>Local-first offline science workshop and lab calculator featuring density &amp; gas law solvers and unit converters.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-science-studio/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 18. Crisp Study Studio -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card">
             <div>
-                <h3>Crisp Study Studio</h3>
-                <div class="product-price">₱499.00 / Code</div>
-                <p>Local-first offline study assistant featuring a Pomodoro focus timer, flashcards, and task tracker.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-study-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>18. 📚 Crisp Study Studio</h3>
+                    <span class="price-tag">₱499.00</span>
                 </div>
+                <p>Local-first offline study assistant featuring a Pomodoro focus timer, interactive flashcards, and task tracker.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-study-studio/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 19. Crisp Music Studio -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card">
             <div>
-                <h3>Crisp Music Studio</h3>
-                <div class="product-price">₱499.00 / Code</div>
-                <p>Local-first offline music workshop featuring a chord progression generator and Web Audio metronome.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-music-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>19. 🎵 Crisp Music Studio</h3>
+                    <span class="price-tag">₱499.00</span>
                 </div>
+                <p>Local-first offline music workshop featuring a chord progression generator, Web Audio metronome, and tap tempo.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-music-studio/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 20. Crisp Farm Voice Studio -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card">
             <div>
-                <h3>Crisp Farm Voice Studio</h3>
-                <div class="product-price">₱499.00 / Code</div>
-                <p>Local-first offline agricultural workshop featuring voice-enabled field loggers and crop guides.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-farm-voice-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>20. 🌾 Crisp Farm Voice Studio</h3>
+                    <span class="price-tag">₱499.00</span>
                 </div>
+                <p>Local-first offline agricultural workshop featuring voice-enabled field loggers, chore checklists, and crop guides.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-farm-voice-studio/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 21. Crisp Senior Studio -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card">
             <div>
-                <h3>Crisp Senior Studio</h3>
-                <div class="product-price">₱499.00 / Code</div>
-                <p>Local-first health and daily care assistant featuring medication reminders and emergency SOS hub.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-senior-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>21. 🛡️ Crisp Senior Studio</h3>
+                    <span class="price-tag">₱499.00</span>
                 </div>
+                <p>Local-first offline health and daily care assistant featuring medication reminders, vital sign logs, and emergency SOS hub.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-senior-studio/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 22. Crisp Kids Studio -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card">
             <div>
-                <h3>Crisp Kids Studio</h3>
-                <div class="product-price">₱499.00 / Code</div>
-                <p>Educational workshop featuring flashcards, a doodle canvas pad, and routine star checklists.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-kids-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>22. 🎨 Crisp Kids Studio</h3>
+                    <span class="price-tag">₱499.00</span>
                 </div>
+                <p>Local-first offline educational workshop featuring ABC &amp; 123 flashcards, doodle canvas pad, and routine star checklists.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-kids-studio/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 23. Crisp Game Studio -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card">
             <div>
-                <h3>Crisp Game Studio</h3>
-                <div class="product-price">₱499.00 / Code</div>
-                <p>Indie game development workshop featuring milestone checklists and game math calculators.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-game-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>23. 🎮 Crisp Game Studio</h3>
+                    <span class="price-tag">₱499.00</span>
                 </div>
+                <p>Local-first indie game development workshop featuring GDD milestone checklists, game math calculators, and asset tracking.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-game-studio/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 24. Crisp Expense Studio -->
-        <div class="product-card">
-            <span class="product-badge">App</span>
+        <div class="card">
             <div>
-                <h3>Crisp Expense Studio</h3>
-                <div class="product-price">₱499.00 / Code</div>
-                <p>Offline daily expense tracker and budget manager featuring category breakdowns and spending limits.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://handlevault-official.github.io/crisp-expense-studio/" target="_blank" class="marketplace-btn btn-launch">Launch</a>
-                    <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="marketplace-btn btn-buy">Buy Code</a>
+                <div class="card-header-row">
+                    <h3>24. 💰 Crisp Expense Studio</h3>
+                    <span class="price-tag">₱499.00</span>
                 </div>
+                <p>Local-first offline daily expense tracker and budget manager featuring category breakdowns and spending limits.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank" class="btn btn-buy">Buy Code</a>
+                <a href="https://handlevault-official.github.io/crisp-expense-studio/" target="_blank" class="btn btn-app">Launch App</a>
             </div>
         </div>
 
         <!-- 25. HandleVault Official Ko-fi Support Hub -->
-        <div class="product-card">
-            <span class="product-badge" style="background:#fef3c7; color:#92400e;">Support</span>
+        <div class="card" style="border-color: #ff5e5b;">
             <div>
-                <h3>Ko-fi Support Hub</h3>
-                <div class="product-price">Custom Tip</div>
-                <p>Support ongoing open-source development, repository maintenance, and independent creator tools.</p>
-            </div>
-            <div class="product-footer">
-                <div class="product-actions">
-                    <a href="https://ko-fi.com/handlevaultofficial" target="_blank" class="marketplace-btn btn-buy" style="background:#ff5e5b; flex: 1;">Support on Ko-fi</a>
+                <div class="card-header-row">
+                    <h3>25. ☕ Ko-fi Support Hub</h3>
+                    <span class="price-tag" style="background: rgba(255,94,91,0.2); color: #ff5e5b;">Support</span>
                 </div>
+                <p>Support ongoing open-source development, repository maintenance, and independent creator tool suites directly.</p>
+            </div>
+            <div class="btn-group">
+                <a href="https://ko-fi.com/handlevaultofficial" target="_blank" class="btn btn-kofi" style="width: 100%;">Support on Ko-fi</a>
             </div>
         </div>
 
     </div>
 
-    <!-- Bottom Notice for Manual Payments / Verification -->
-    <div class="marketplace-notice">
-        <div class="notice-text">
-            <h4>💳 Manual Payments (GCash / Maya / Bank Transfer)</h4>
-            <p>Direct local transfers are fully accepted. Send your payment screenshot and reference number for quick key verification.</p>
+    <!-- All-in-One Bottom Hub: Text Ads, News, Updates -->
+    <div class="bottom-hub">
+        <div class="hub-box">
+            <h3>📢 Sponsored &amp; Featured Tools</h3>
+            <div class="text-ad">
+                <strong>Ecosystem Pass:</strong> Unlock all tools instantly with our <a href="https://vaultkeeper117.gumroad.com/l/ztzxpg" target="_blank">All-Access Master Bundle</a>.
+            </div>
+            <div class="text-ad">
+                <strong>Support Creator:</strong> Back independent development via our <a href="https://ko-fi.com/handlevaultofficial" target="_blank">Ko-fi Support Page</a>.
+            </div>
         </div>
-        <a href="https://vaultkeeper117.gumroad.com" target="_blank" class="marketplace-btn btn-buy" style="padding: 8px 16px; flex: initial;">Visit Main Store</a>
+
+        <div class="hub-box">
+            <h3>🚀 News &amp; System Updates</h3>
+            <ul>
+                <li><strong>v2.5 Release:</strong> Added Crisp Creator Studio &amp; Kusina AI to the hub suite.</li>
+                <li><strong>Security Update:</strong> All app source code securely isolated in private repositories.</li>
+                <li><strong>Performance:</strong> Enhanced PWA offline caching across all 26 applications.</li>
+            </ul>
+        </div>
+
+        <div class="hub-box">
+            <h3>💬 Comments, Suggestions &amp; Info</h3>
+            <ul>
+                <li><strong>Feedback:</strong> Have tool suggestions or feature requests? Reach out via Ko-fi.</li>
+                <li><strong>Community:</strong> Share your workflows and productivity setups with fellow creators.</li>
+                <li><strong>Support:</strong> Manual payment proofs (GCash/Maya) can be submitted for fast key issuance.</li>
+            </ul>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Crisp Suite / HandleVault Official. All rights reserved.</p>
+        <p>&copy; 2026 Crisp Suite / HandleVault Official. All rights reserved. Powered by Ko-fi, Gumroad, Replit, and Google AI Studio.</p>
     </footer>
-
 </body>
-    </html>
+</html>
+
