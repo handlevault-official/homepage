@@ -24,7 +24,7 @@ Crisp Suite integrates automated platform sales (Gumroad, Ko-fi) and manual loca
 * **Crisp Expense Studio:** https://handlevault-official.github.io/crisp-expense-studio/
 
 ## 💎 Gumroad Store Hub & Digital Assets
-* **Main Store:** vaultkeeper117.gumroad.com
+* **Main Store:** https://vaultkeeper117.gumroad.com
 * **HandleVault Studio Hub (Individual Pack):** https://vaultkeeper117.gumroad.com/l/ztzxpg
 * **Universal Product Template (Pixel Art Pack):** https://vaultkeeper117.gumroad.com/l/xwzxwp
 * **Free WebM Sample Alert (Resub #3):** https://vaultkeeper117.gumroad.com/l/copzec
