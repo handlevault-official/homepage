@@ -5,7 +5,7 @@ Welcome to the **Crisp Suite** centralized repository and ecosystem hub! This re
 ## 🚀 Overview
 Crisp Suite integrates automated platform sales (Gumroad, Ko-fi) and manual local payments (GCash, Maya, Maya Bank) into a single, cohesive developer and creator ecosystem.
 
-## 📦 Core Product Suite & Live Links
+## 📦 Core Product Suite & Live Links (17 Apps)
 * **Pixel Art Studio:** https://handlevault-official.github.io/crisp-pixel/
 * **Moonlit Beads Blueprint:** https://handlevault-official.github.io/crisp-moonlit-beads-blueprint-studio/
 * **Resume & CV Studio:** https://handlevault-official.github.io/crisp-resume-CV-studio/
@@ -25,7 +25,7 @@ Crisp Suite integrates automated platform sales (Gumroad, Ko-fi) and manual loca
 
 ## 💎 Gumroad Store Hub & Digital Assets
 * **Main Store:** vaultkeeper117.gumroad.com
-* **Crisp Suite Studio Hub (All-Access Pass):** https://vaultkeeper117.gumroad.com/l/ztzxpg
+* **HandleVault Studio Hub (Individual Pack):** https://vaultkeeper117.gumroad.com/l/ztzxpg
 * **Universal Product Template (Pixel Art Pack):** https://vaultkeeper117.gumroad.com/l/xwzxwp
 * **Free WebM Sample Alert (Resub #3):** https://vaultkeeper117.gumroad.com/l/copzec
 * **Standard MP4 Format Animated Alert File:** https://vaultkeeper117.gumroad.com/l/dkmedq
@@ -33,6 +33,9 @@ Crisp Suite integrates automated platform sales (Gumroad, Ko-fi) and manual loca
 * **WebM Animated Alert File:** https://vaultkeeper117.gumroad.com/l/fanvlu
 * **YouTube-MP4 Animated Alert File:** https://vaultkeeper117.gumroad.com/l/aihkjh
 * **Calm Aesthetic Wallpaper Bundle:** https://vaultkeeper117.gumroad.com/l/echfl
+
+## 🔥 All-Access Bundle & Master Pass
+* **HandleVault Studio: Ecosystem Master Pass – Complete Lifetime Access to All 17 Offline Web Apps, Studios & Creator Assets (₱4,999 Bundle):** https://vaultkeeper117.gumroad.com/l/vmmdiz
 
 ## ☕ Support Us
 * **Ko-fi:** https://ko-fi.com/handlevaultofficial
