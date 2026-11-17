@@ -19,6 +19,10 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
 /* Flashing Announcement Banner Style */
 .flash-banner{margin-top:16px;padding:12px 18px;border-radius:12px;background:linear-gradient(110deg,rgba(108,224,208,.1),rgba(169,154,255,.1));border:1px dashed var(--mint);display:flex;align-items:center;gap:12px;font-size:.9rem;font-weight:700}.flash-icon{font-size:1.2rem}.flash-text{color:var(--mint);animation:pulseText 1.8s infinite ease-in-out}@keyframes pulseText{0%,100%{opacity:1}50%{opacity:0.4}}
 
+/* Teaser Paywall Overlay Modal Style */
+#paywallOverlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(9,13,25,0.88);backdrop-filter:blur(10px);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.paywall-card{max-width:460px;width:100%;background:#121a2d;border:1px solid rgba(169,154,255,0.4);border-radius:24px;padding:32px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,0.5);}
+
 .support{margin-top:60px;padding:25px;border:1px solid var(--line);border-radius:21px;display:flex;align-items:center;justify-content:space-between;gap:18px;background:#ffffff06}.support p{margin:5px 0 0;color:var(--muted)}footer{margin-top:65px;border-top:1px solid var(--line);padding:27px 0 36px;color:#8491aa;font-size:.82rem}.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 @media(max-width:850px){.featured{grid-template-columns:1fr}.art{min-height:120px}}
 @media(max-width:600px){.navlinks{gap:12px;font-size:.8rem}.navlinks a:nth-child(2){display:none}.nav .btn{font-size:.78rem;padding:9px 11px}.hero{padding:62px 0 44px}.storegrid{grid-template-columns:1fr}.support{align-items:flex-start;flex-direction:column}.container{width:calc(100% - 28px)}}
@@ -32,6 +36,7 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
 <div class="navlinks"><a href="#gates">3D Gates</a><a href="#apps">Explore Apps</a><a href="#store">Store</a><a href="https://ko-fi.com/handlevaultofficial" target="_blank" rel="noopener">Support</a></div>
 <a class="btn primary" href="https://vaultkeeper117.gumroad.com/l/vmmdiz" target="_blank" rel="noopener">Get Master Pass ↗</a>
 </nav></header>
+
 <main id="home">
 <section class="hero container">
 <div class="eyebrow">One ecosystem. Many possibilities.</div>
@@ -46,7 +51,7 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
 <div class="art" aria-hidden="true">💌</div>
 </div></section>
 
-  <!-- 3D GATES SECTION -->
+<!-- 3D GATES SECTION -->
 <section class="content container" id="gates">
 <div class="sectionhead">
   <div class="eyebrow">Interactive architecture</div>
@@ -58,6 +63,7 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
   <h3>Interactive 3D Gates Collection</h3>
   <p>Direct links to all 7 interactive gate experiences in the ecosystem.</p>
   <div class="storelinks">
+    <!-- Pwede nating lagyan ng function na 'openSecuredApp' para lumabas ang Paywall Teaser kapag na-click, o direct link -->
     <a href="https://handlevault-official.github.io/crisp-gate-invite/" target="_blank" rel="noopener">💌 Crisp Gate Invite — Interactive 3D envelope experience for weddings, dates, and RSVPs ↗</a>
     <a href="https://handlevault-official.github.io/crisp-proposal-gate/" target="_blank" rel="noopener">💐 Crisp Proposal Gate — Romantic and business proposal screening gateway with flower/heart motif ↗</a>
     <a href="https://handlevault-official.github.io/crisp-mission-gate/" target="_blank" rel="noopener">🎯 Crisp Mission Gate — Strategic mission alignment and core objective verification gateway ↗</a>
@@ -67,7 +73,6 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
     <a href="https://handlevault-official.github.io/crisp-career-gate/" target="_blank" rel="noopener">💼 Crisp Career Gate — Full-time role and freelance contract candidate screening gateway ↗</a>
   </div>
 
-  <!-- Flashing Announcement para sa 7 Gates -->
   <div class="flash-banner">
     <span class="flash-icon">📢</span>
     <span class="flash-text">ANNOUNCEMENT: We accept customized 3D envelope designs tailored for your special events and business needs! Message us to request yours today.</span>
@@ -94,7 +99,6 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
   </div>
 </div>
 
-<!-- Collapsible Button para sa iba pang Apps sa baba -->
 <details class="dropdown-section">
   <summary class="dropdown-toggle">More Studio Apps &amp; Specialized Workspaces (Click to open list)</summary>
   <div class="dropdown-body">
@@ -116,7 +120,6 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
   </div>
 </details>
 
-<!-- Flashing Announcement para sa Apps -->
 <div class="flash-banner" style="border-color: var(--purple);">
   <span class="flash-icon">⚡</span>
   <span class="flash-text" style="color: var(--purple); animation-duration: 1.4s;">NEWS & REMINDER: Grab your workspace bundles now! Take a scheduled short break every 4.5 hours of continuous coding or studying to stay fresh and focused.</span>
@@ -184,7 +187,6 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
     <a href="https://vaultkeeper117.gumroad.com/l/echfl" target="_blank" rel="noopener">Calm Aesthetic Wallpaper Bundle ↗</a>
   </div>
 
-  <!-- Flashing Announcement sa Pinakababa / Store Section -->
   <div class="flash-banner" style="border-color: var(--gold);">
     <span class="flash-icon">🔔</span>
     <span class="flash-text" style="color: var(--gold); animation-duration: 2.2s;">STORE UPDATE: All digital products and templates include standard personal & commercial project licensing. Secure your lifetime access passes today!</span>
@@ -194,6 +196,28 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
   
 <section class="container"><div class="support"><div><h3 style="margin:0">Enjoying Crisp Suite &amp; 3D Gates?</h3><p>Your support helps the ecosystem keep growing.</p></div><a class="btn" href="https://ko-fi.com/handlevaultofficial" target="_blank" rel="noopener">Support on Ko-fi ☕ ↗</a></div></section>
 </main>
+
 <footer><div class="container foot"><span>© 2026 Crisp Suite. All rights reserved.</span><span>Made for curious minds, creative work, and interactive gates.</span></div></footer>
+
+<!-- PAYWALL / TEASER MODAL OVERLAY (Kusang lilitaw para sa marketing/upsell kapag kinakailangan) -->
+<div id="paywallOverlay">
+  <div class="paywall-card">
+    <div style="font-size:3rem; margin-bottom:12px;">🔒</div>
+    <h3 style="color:#f4f7ff; margin-bottom:10px; font-size:1.4rem;">Unlock Full Crisp Suite Access</h3>
+    <p style="color:#aab5ca; font-size:0.92rem; margin-bottom:20px;">You've unlocked the preview! To access full lifetime source code, custom 3D envelope features, and advanced workspaces, get your Master Pass or Bundle on Gumroad.</p>
+    <a href="https://vaultkeeper117.gumroad.com/l/vmmdiz" target="_blank" class="btn primary" style="width:100%; margin-bottom:10px;">Get Ecosystem Master Pass ↗</a>
+    <button onclick="closePaywall()" style="background:transparent; border:none; color:#aab5ca; font-size:0.85rem; cursor:pointer; text-decoration:underline; margin-top:5px;">Close Preview / Back to Hub</button>
+  </div>
+</div>
+
+<script>
+// Optional function para ma-trigger ang paywall preview kung gugustuhin mo sa mga apps mo
+function triggerPaywall() {
+  document.getElementById('paywallOverlay').style.display = 'flex';
+}
+function closePaywall() {
+  document.getElementById('paywallOverlay').style.display = 'none';
+}
+</script>
 </body>
 </html>
