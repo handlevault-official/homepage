@@ -1,9 +1,18 @@
-# 🛡️ Crisp Suite Ecosystem Hub
+# 🛡️ Crisp Suite Homepage Hub
 
-Welcome to the **Crisp Suite** centralized repository and ecosystem hub! This repository serves as the single source of truth for our apps, digital assets, license verification workflows, and unified transaction management.
+Welcome to the **Crisp Suite** centralized repository and homepage hub! This repository serves as the single source of truth for our apps, digital assets, license verification workflows, and unified transaction management.
 
 ## 🚀 Overview
-Crisp Suite integrates automated platform sales (Gumroad, Ko-fi) and manual local payments (GCash, Maya, Maya Bank) into a single, cohesive developer and creator ecosystem.
+Crisp Suite integrates automated platform sales and licensing (Gumroad, Ko-fi) into a single, cohesive developer and creator ecosystem with secure license-key verification.
+
+## 💌 Crisp Suite 3D Gates Collection (Tier 1 Architecture)
+* **Crisp Gate Invite:** https://handlevault-official.github.io/crisp-gate-invite/ — Interactive 3D envelope experience for weddings, dates, and RSVPs[span_0](start_span)[span_0](end_span).
+* **Crisp Proposal Gate:** https://handlevault-official.github.io/crisp-proposal-gate/ — Romantic and business proposal screening gateway with flower/heart motif[span_1](start_span)[span_1](end_span).
+* **Crisp Mission Gate:** https://handlevault-official.github.io/crisp-mission-gate/ — Strategic mission alignment and core objective verification gateway[span_2](start_span)[span_2](end_span).
+* **Crisp Milestone Gate:** https://handlevault-official.github.io/crisp-milestone-gate/ — Phase execution and scaling verification gateway with secure locking[span_3](start_span)[span_3](end_span).
+* **Crisp Launch Gate:** https://handlevault-official.github.io/crisp-launch-gate/ — Mainnet go-live and beta release countdown gateway[span_4](start_span)[span_4](end_span).
+* **Crisp Master Gate:** https://handlevault-official.github.io/crisp-master-gate/ — Administrative clearance and root ecosystem override gateway[span_5](start_span)[span_5](end_span).
+* **Crisp Career Gate:** https://handlevault-official.github.io/crisp-career-gate/ — Full-time role and freelance contract candidate screening gateway[span_6](start_span)[span_6](end_span).
 
 ## 📦 Core Product Suite & Live Links (17 Apps)
 * **Pixel Art Studio:** https://handlevault-official.github.io/crisp-pixel/
@@ -25,7 +34,7 @@ Crisp Suite integrates automated platform sales (Gumroad, Ko-fi) and manual loca
 
 ## 💎 Gumroad Store Hub & Digital Assets
 * **Main Store:** https://vaultkeeper117.gumroad.com
-* **HandleVault Studio Hub (Individual Pack (₱1,999):** https://vaultkeeper117.gumroad.com/l/ztzxpg
+* **HandleVault Studio Hub (Individual Pack - ₱1,999):** https://vaultkeeper117.gumroad.com/l/ztzxpg
 * **Universal Product Template (Pixel Art Pack):** https://vaultkeeper117.gumroad.com/l/xwzxwp
 * **Free WebM Sample Alert (Resub #3):** https://vaultkeeper117.gumroad.com/l/copzec
 * **Standard MP4 Format Animated Alert File:** https://vaultkeeper117.gumroad.com/l/dkmedq
@@ -41,9 +50,9 @@ Crisp Suite integrates automated platform sales (Gumroad, Ko-fi) and manual loca
 * **Ko-fi:** https://ko-fi.com/handlevaultofficial
 
 ## ⚙️ Features
-* Centralized landing page and portal (`index.html`) hosted via GitHub Pages.
-* Multi-platform payment webhook support and license key generation.
-* Scalable architecture for individual app licenses, bundles, and digital downloads.
+* Centralized landing page (`index.html`) and private directory (`admin.html`) hosted via GitHub Pages.
+* Fully automated platform checkout and instant Gumroad license key generation[span_2](start_span)[span_2](end_span).
+* Secure client-side license verification workflow via `localStorage` integration.
 
 ---
 © 2026 Crisp Suite. All rights reserved.
