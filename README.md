@@ -44,7 +44,7 @@ Crisp Suite integrates automated platform sales and licensing (Gumroad, Ko-fi) i
 * **Calm Aesthetic Wallpaper Bundle:** https://vaultkeeper117.gumroad.com/l/echfl
 
 ## 🔥 All-Access Bundle & Master Pass
-* **HandleVault Studio: Ecosystem Master Pass – Complete Lifetime Access to All 17 Offline Web Apps, Studios & Creator Assets (₱4,999 Bundle):** https://vaultkeeper117.gumroad.com/l/vmmdiz
+* **HandleVault Studio: Ecosystem Master Pass – Complete Lifetime Access to All 17 Offline Web Apps, Studios & Creator Assets (Bundle):** https://vaultkeeper117.gumroad.com/l/vmmdiz
 
 ## ☕ Support Us
 * **Ko-fi:** https://ko-fi.com/handlevaultofficial
