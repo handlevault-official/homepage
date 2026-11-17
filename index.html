@@ -11,12 +11,13 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 12% 0%,rgba(115,94,220,.18),transparent 34rem),radial-gradient(ellipse at 90% 15%,rgba(65,190,180,.1),transparent 30rem),var(--bg);color:var(--text);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}.container{width:min(1160px,calc(100% - 36px));margin:auto}
 header{position:sticky;top:0;z-index:5;background:rgba(9,13,25,.84);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:.04em}.mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--mint),var(--purple));color:#101326;font-weight:950}.navlinks{display:flex;gap:22px;color:var(--muted);font-size:.9rem}.navlinks a:hover{color:white}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 17px;border-radius:999px;font-weight:800;font-size:.9rem;border:1px solid var(--line);transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{background:linear-gradient(110deg,var(--mint),#b9adff);color:#0b1020;border:0}.hero{padding:82px 0 58px}.eyebrow{color:var(--mint);font-size:.76rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);line-height:.99;letter-spacing:-.065em;margin:18px 0}.gradient{background:linear-gradient(100deg,#fff,#b9b0ff 55%,#73e2d4);background-clip:text;color:transparent}.lead{max-width:670px;color:var(--muted);font-size:1.1rem}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.featured{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;padding:26px;border:1px solid rgba(169,154,255,.3);border-radius:25px;background:linear-gradient(125deg,rgba(111,94,210,.17),rgba(28,45,65,.55))}.gold{color:var(--gold);font-size:.75rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}.featured h2{font-size:clamp(1.7rem,3vw,2.4rem);margin:8px 0}.featured p,.sectionhead p,.card p,.store p{color:var(--muted)}.art{display:grid;place-items:center;min-height:170px;border-radius:18px;background:radial-gradient(circle,rgba(169,154,255,.35),transparent 60%),rgba(0,0,0,.18);font-size:5rem}
-section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2{font-size:2rem;margin:6px 0}.toolbar{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0}.search{flex:1 1 230px;min-height:46px;padding:10px 14px;border:1px solid var(--line);border-radius:13px;background:var(--panel);color:white}.filters{display:flex;flex-wrap:wrap;gap:8px}.filter{border:1px solid var(--line);background:#ffffff08;color:var(--muted);padding:9px 13px;border-radius:999px;cursor:pointer;font-weight:700}.filter.active,.filter:hover{color:white;border-color:var(--purple);background:#a99aff20}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{padding:19px;border:1px solid var(--line);border-radius:19px;background:linear-gradient(145deg,#161f33,#0e1524);min-height:215px;display:flex;flex-direction:column;transition:.2s}.card:hover{transform:translateY(-4px);border-color:#a99aff77}.top{display:flex;justify-content:space-between;align-items:center}.ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.4rem;background:#a99aff20}.tag{font-size:.68rem;color:var(--mint);border:1px solid #6ce0d044;padding:4px 8px;border-radius:999px}.card h3{margin:16px 0 5px;font-size:1.05rem}.card p{font-size:.87rem;margin:0 0 16px;flex:1}.launch{color:#c9c0ff;font-weight:800;font-size:.88rem}.empty{display:none;padding:25px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:15px}
-.storegrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.store{border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(130deg,#232b46,#11182a)}.store h3{margin:8px 0;font-size:1.35rem}.price{font-size:1.45rem;color:var(--gold);font-weight:900;margin:12px 0}.storelinks{display:grid;gap:11px;margin-top:15px}.storelinks a{color:#d4ceff;font-size:.9rem}.storelinks a:hover{color:white}.support{margin-top:60px;padding:25px;border:1px solid var(--line);border-radius:21px;display:flex;align-items:center;justify-content:space-between;gap:18px;background:#ffffff06}.support p{margin:5px 0 0;color:var(--muted)}footer{margin-top:65px;border-top:1px solid var(--line);padding:27px 0 36px;color:#8491aa;font-size:.82rem}.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.featured{grid-template-columns:1fr}.art{min-height:120px}}
-@media(max-width:600px){.navlinks{gap:12px;font-size:.8rem}.navlinks a:nth-child(2){display:none}.nav .btn{font-size:.78rem;padding:9px 11px}.hero{padding:62px 0 44px}.grid,.storegrid{grid-template-columns:1fr}.support{align-items:flex-start;flex-direction:column}.container{width:calc(100% - 28px)}}
+.featured{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;padding:26px;border:1px solid rgba(169,154,255,.3);border-radius:25px;background:linear-gradient(125deg,rgba(111,94,210,.17),rgba(28,45,65,.55))}.gold{color:var(--gold);font-size:.75rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}.featured h2{font-size:clamp(1.7rem,3vw,2.4rem);margin:8px 0}.featured p,.sectionhead p,.store p{color:var(--muted)}.art{display:grid;place-items:center;min-height:170px;border-radius:18px;background:radial-gradient(circle,rgba(169,154,255,.35),transparent 60%),rgba(0,0,0,.18);font-size:5rem}
+section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2{font-size:2rem;margin:6px 0}
+.storegrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.store{border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(130deg,#232b46,#11182a)}.store h3{margin:8px 0;font-size:1.35rem}.price{font-size:1.45rem;color:var(--gold);font-weight:900;margin:12px 0}.storelinks{display:grid;gap:11px;margin-top:15px}.storelinks a{color:#d4ceff;font-size:.9rem}.storelinks a:hover{color:white}
+details.dropdown-section{border:1px solid var(--line);border-radius:20px;background:var(--panel);margin-top:20px;overflow:hidden;transition:.2s}details.dropdown-section[open]{border-color:rgba(169,154,255,.4)}summary.dropdown-toggle{padding:20px 24px;font-weight:800;font-size:1.15rem;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.02);user-select:none}summary.dropdown-toggle::-webkit-details-marker{display:none}summary.dropdown-toggle::after{content:'▼';font-size:.75rem;color:var(--purple);transition:transform .2s}details.dropdown-section[open] summary.dropdown-toggle::after{transform:rotate(180deg)}.dropdown-body{padding:20px;border-top:1px solid var(--line)}
+.support{margin-top:60px;padding:25px;border:1px solid var(--line);border-radius:21px;display:flex;align-items:center;justify-content:space-between;gap:18px;background:#ffffff06}.support p{margin:5px 0 0;color:var(--muted)}footer{margin-top:65px;border-top:1px solid var(--line);padding:27px 0 36px;color:#8491aa;font-size:.82rem}.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:850px){.featured{grid-template-columns:1fr}.art{min-height:120px}}
+@media(max-width:600px){.navlinks{gap:12px;font-size:.8rem}.navlinks a:nth-child(2){display:none}.nav .btn{font-size:.78rem;padding:9px 11px}.hero{padding:62px 0 44px}.storegrid{grid-template-columns:1fr}.support{align-items:flex-start;flex-direction:column}.container{width:calc(100% - 28px)}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
@@ -41,85 +42,70 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
 <div class="art" aria-hidden="true">💌</div>
 </div></section>
 
-  <!-- 3D GATES SECTION (7 APPS / GATES) -->
+  <!-- 3D GATES SECTION (Naka-List Style na rin) -->
 <section class="content container" id="gates">
-<div class="sectionhead"><div class="eyebrow">Interactive architecture</div><h2>Crisp 3D Envelope Gates (7 Apps Ecosystem)</h2><p>Fully standardized interactive gates equipped with dual-language support, custom 3D envelope motifs, theme toggles, and secure verification passes.</p></div>
-<div class="grid">
-<article class="card" data-category="gates" data-name="crisp gate invite invitation rsvp">
-<div class="top"><span class="ico">💌</span><span class="tag">Gate Invite</span></div>
-<h3>Crisp Gate Invite</h3>
-<p>Interactive 3D envelope experience for weddings, dates, birthdays, and baby shower RSVPs with dual language.</p>
-<a class="launch" href="https://handlevault-official.github.io/crisp-gate-invite/" target="_blank" rel="noopener">Open Gate ↗</a>
-</article>
-<article class="card" data-category="gates" data-name="crisp proposal gate partnership marriage">
-<div class="top"><span class="ico">💐</span><span class="tag">Proposal Gate</span></div>
-<h3>Crisp Proposal Gate</h3>
-<p>Romantic and business proposal screening gateway with flower/heart motif 3D envelope and dual language.</p>
-<a class="launch" href="https://handlevault-official.github.io/crisp-proposal-gate/" target="_blank" rel="noopener">Open Gate ↗</a>
-</article>
-<article class="card" data-category="gates" data-name="crisp mission gate core ecosystem">
-<div class="top"><span class="ico">🎯</span><span class="tag">Mission Gate</span></div>
-<h3>Crisp Mission Gate</h3>
-<p>Strategic mission alignment and core objective verification gateway with customized 3D motifs.</p>
-<a class="launch" href="https://handlevault-official.github.io/crisp-mission-gate/" target="_blank" rel="noopener">Open Gate ↗</a>
-</article>
-<article class="card" data-category="gates" data-name="crisp milestone gate phase execution">
-<div class="top"><span class="ico">🛡️</span><span class="tag">Milestone Gate</span></div>
-<h3>Crisp Milestone Gate</h3>
-<p>Phase execution and scaling verification gateway with secure locking mechanics and dual language.</p>
-<a class="launch" href="https://handlevault-official.github.io/crisp-milestone-gate/" target="_blank" rel="noopener">Open Gate ↗</a>
-</article>
-<article class="card" data-category="gates" data-name="crisp launch gate mainnet beta go-live">
-<div class="top"><span class="ico">🚀</span><span class="tag">Launch Gate</span></div>
-<h3>Crisp Launch Gate</h3>
-<p>Mainnet go-live and beta release countdown gateway with automated deployment clearance passes.</p>
-<a class="launch" href="https://handlevault-official.github.io/crisp-launch-gate/" target="_blank" rel="noopener">Open Gate ↗</a>
-</article>
-<article class="card" data-category="gates" data-name="crisp master gate admin root access">
-<div class="top"><span class="ico">🏛️</span><span class="tag">Master Gate</span></div>
-<h3>Crisp Master Gate</h3>
-<p>Administrative clearance and root ecosystem override gateway with gold security motifs.</p>
-<a class="launch" href="https://handlevault-official.github.io/crisp-master-gate/" target="_blank" rel="noopener">Open Gate ↗</a>
-</article>
-<article class="card" data-category="gates" data-name="crisp career gate hiring screening full-time contract">
-<div class="top"><span class="ico">💼</span><span class="tag">Career Gate</span></div>
-<h3>Crisp Career Gate</h3>
-<p>Full-time role and freelance contract candidate screening gateway with professional 3D indigo envelope.</p>
-<a class="launch" href="https://handlevault-official.github.io/crisp-career-gate/" target="_blank" rel="noopener">Open Gate ↗</a>
-</article>
-</div>
-</section>
-
-<!-- APP COLLECTION SECTION (Naka-Storelinks Style na ang Featured Apps) -->
-<section class="content container" id="apps">
 <div class="sectionhead">
-  <div class="eyebrow">The app collection</div>
-  <h2>Featured Studio Apps &amp; Workspaces</h2>
-  <p>Explore our core creative and productivity tools, styled cleanly like the digital product list below.</p>
+  <div class="eyebrow">Interactive architecture</div>
+  <h2>Crisp 3D Envelope Gates (7 Apps Ecosystem)</h2>
+  <p>Fully standardized interactive gates equipped with dual-language support, custom 3D envelope motifs, and secure verification passes.</p>
 </div>
 
 <div class="store" style="margin-top:20px">
-  <h3>Featured Studio Applications</h3>
-  <p>Quick access links to popular creative, learning, business, and lifestyle studio workspaces in the Crisp Suite ecosystem.</p>
+  <h3>Interactive 3D Gates Collection</h3>
+  <p>Direct links to all 7 interactive gate experiences in the ecosystem.</p>
   <div class="storelinks">
-    <a href="https://handlevault-official.github.io/crisp-pixel-studio/" target="_blank" rel="noopener">🧩 Pixel Art Studio — Build pixel-inspired artwork and bring small ideas to life ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-moonlit-beads-blueprint-studio/" target="_blank" rel="noopener">🌙 Moonlit Beads Blueprint — A creative blueprint workspace for bead and jewelry projects ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-resume-CV-studio/" target="_blank" rel="noopener">📄 Resume &amp; CV Studio — Prepare polished career documents and professional profiles ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-invoice-studio/" target="_blank" rel="noopener">🧾 Invoice Studio — Create and manage clean, professional billing documents ↗</a>
-    <a href="https://handlevault-official.github.io/gitvoice-clinical-dashboard/" target="_blank" rel="noopener">🩺 GitVoice Clinical Dashboard — A clinical workflow and dashboard experience for healthcare teams ↗</a>
-    <a href="https://handlevault-official.github.io/kusina-ai/" target="_blank" rel="noopener">🍲 Kusina AI — A kitchen companion for food ideas and everyday cooking inspiration ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-creator-studio/" target="_blank" rel="noopener">🎨 Crisp Creator Studio — A flexible creative space for making and shaping content ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-math-studio/" target="_blank" rel="noopener">➗ Crisp Math Studio — Explore mathematical concepts and practice problem-solving ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-science-studio/" target="_blank" rel="noopener">🔬 Crisp Science Studio — A learning workspace for exploring science topics and ideas ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-study-studio/" target="_blank" rel="noopener">📚 Crisp Study Studio — Organize study sessions and build better learning habits ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-music-studio/" target="_blank" rel="noopener">🎧 Crisp Music Studio — A workspace for music creation and audio production projects ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-farm-voice-studio/" target="_blank" rel="noopener">🌱 Crisp Farm Voice Studio — A voice-assisted concept for farm and agriculture workflows ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-senior-studio/" target="_blank" rel="noopener">💚 Crisp Senior Studio — An approachable, easy-to-read digital assistant experience ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-kids-studio/" target="_blank" rel="noopener">🧸 Crisp Kids Studio — A bright digital space designed around kid-friendly activities ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-game-studio/" target="_blank" rel="noopener">🕹️ Crisp Game Studio — A playful workspace for game-related creative projects ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-expense-studio/" target="_blank" rel="noopener">💳 Crisp Expense Studio — Track expenses and bring more clarity to everyday budgeting ↗</a>
+    <a href="https://handlevault-official.github.io/crisp-gate-invite/" target="_blank" rel="noopener">💌 Crisp Gate Invite — Interactive 3D envelope experience for weddings, dates, and RSVPs ↗</a>
+    <a href="https://handlevault-official.github.io/crisp-proposal-gate/" target="_blank" rel="noopener">💐 Crisp Proposal Gate — Romantic and business proposal screening gateway with flower/heart motif ↗</a>
+    <a href="https://handlevault-official.github.io/crisp-mission-gate/" target="_blank" rel="noopener">🎯 Crisp Mission Gate — Strategic mission alignment and core objective verification gateway ↗</a>
+    <a href="https://handlevault-official.github.io/crisp-milestone-gate/" target="_blank" rel="noopener">🛡️ Crisp Milestone Gate — Phase execution and scaling verification gateway with secure locking ↗</a>
+    <a href="https://handlevault-official.github.io/crisp-launch-gate/" target="_blank" rel="noopener">🚀 Crisp Launch Gate — Mainnet go-live and beta release countdown gateway ↗</a>
+    <a href="https://handlevault-official.github.io/crisp-master-gate/" target="_blank" rel="noopener">🏛️ Crisp Master Gate — Administrative clearance and root ecosystem override gateway ↗</a>
+    <a href="https://handlevault-official.github.io/crisp-career-gate/" target="_blank" rel="noopener">💼 Crisp Career Gate — Full-time role and freelance contract candidate screening gateway ↗</a>
   </div>
 </div>
+</section>
+
+<!-- APP COLLECTION SECTION (Tig-isang stand-out sa 3 sections + Collapsible More Apps sa baba) -->
+<section class="content container" id="apps">
+<div class="sectionhead">
+  <div class="eyebrow">The app collection</div>
+  <h2>Explore Crisp Suite Apps</h2>
+  <p>Find the right workspace for what you want to make or manage.</p>
+</div>
+
+<!-- Standout Featured Apps (Tig-isa sa Creative, Business, Learning/Lifestyle) -->
+<div class="store" style="margin-top:20px; border-color: rgba(108,224,208,.4); background: linear-gradient(130deg,#162b36,#11182a)">
+  <div class="gold">✦ Featured Studio Workspaces</div>
+  <h3>Core Highlight Apps</h3>
+  <p>Pangunahing mga workspace na maaari mong subukan mula sa iba't ibang kategorya.</p>
+  <div class="storelinks">
+    <a href="https://handlevault-official.github.io/crisp-pixel-studio/" target="_blank" rel="noopener">🧩 Pixel Art Studio (Creative) — Build pixel-inspired artwork and bring small ideas to life ↗</a>
+    <a href="https://handlevault-official.github.io/crisp-resume-CV-studio/" target="_blank" rel="noopener">📄 Resume &amp; CV Studio (Business) — Prepare polished career documents and professional profiles ↗</a>
+    <a href="https://handlevault-official.github.io/crisp-study-studio/" target="_blank" rel="noopener">📚 Crisp Study Studio (Learning) — Organize study sessions and build better learning habits ↗</a>
+  </div>
+</div>
+
+<!-- Collapsible Button para sa iba pang Apps sa baba -->
+<details class="dropdown-section">
+  <summary class="dropdown-toggle">More Studio Apps &amp; Specialized Workspaces (Click to open list)</summary>
+  <div class="dropdown-body">
+    <div class="storelinks">
+      <a href="https://handlevault-official.github.io/crisp-moonlit-beads-blueprint-studio/" target="_blank" rel="noopener">🌙 Moonlit Beads Blueprint — A creative blueprint workspace for bead and jewelry projects ↗</a>
+      <a href="https://handlevault-official.github.io/crisp-invoice-studio/" target="_blank" rel="noopener">🧾 Invoice Studio — Create and manage clean, professional billing documents ↗</a>
+      <a href="https://handlevault-official.github.io/gitvoice-clinical-dashboard/" target="_blank" rel="noopener">🩺 GitVoice Clinical Dashboard — A clinical workflow and dashboard experience for healthcare teams ↗</a>
+      <a href="https://handlevault-official.github.io/kusina-ai/" target="_blank" rel="noopener">🍲 Kusina AI — A kitchen companion for food ideas and everyday cooking inspiration ↗</a>
+      <a href="https://handlevault-official.github.io/crisp-creator-studio/" target="_blank" rel="noopener">🎨 Crisp Creator Studio — A flexible creative space for making and shaping content ↗</a>
+      <a href="https://handlevault-official.github.io/crisp-math-studio/" target="_blank" rel="noopener">➗ Crisp Math Studio — Explore mathematical concepts and practice problem-solving ↗</a>
+      <a href="https://handlevault-official.github.io/crisp-science-studio/" target="_blank" rel="noopener">🔬 Crisp Science Studio — A learning workspace for exploring science topics and ideas ↗</a>
+      <a href="https://handlevault-official.github.io/crisp-music-studio/" target="_blank" rel="noopener">🎧 Crisp Music Studio — A workspace for music creation and audio production projects ↗</a>
+      <a href="https://handlevault-official.github.io/crisp-farm-voice-studio/" target="_blank" rel="noopener">🌱 Crisp Farm Voice Studio — A voice-assisted concept for farm and agriculture workflows ↗</a>
+      <a href="https://handlevault-official.github.io/crisp-senior-studio/" target="_blank" rel="noopener">💚 Crisp Senior Studio — An approachable, easy-to-read digital assistant experience ↗</a>
+      <a href="https://handlevault-official.github.io/crisp-kids-studio/" target="_blank" rel="noopener">🧸 Crisp Kids Studio — A bright digital space designed around kid-friendly activities ↗</a>
+      <a href="https://handlevault-official.github.io/crisp-game-studio/" target="_blank" rel="noopener">🕹️ Crisp Game Studio — A playful workspace for game-related creative projects ↗</a>
+      <a href="https://handlevault-official.github.io/crisp-expense-studio/" target="_blank" rel="noopener">💳 Crisp Expense Studio — Track expenses and bring more clarity to everyday budgeting ↗</a>
+    </div>
+  </div>
+</details>
 </section>
 
 <!-- STORE SECTION WITH 7 BUNDLES & DIGITAL ASSETS -->
@@ -134,7 +120,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
   <div class="store" style="border-color: rgba(242,200,121,.4); background: linear-gradient(130deg,#2b2618,#161a29)">
     <div class="gold">✦ 7 Apps Ecosystem Bundle • Fully Customizable</div>
     <h3>Crisp Suite 3D Gates Bundle (7 Apps)</h3>
-    <p>Get all 7 interactive 3D envelope gates (Gate Invite, Proposal, Mission, Milestone, Launch, Master, and Career) with dual-language EN/TL support, theme toggles, and fully customizable architecture.</p>
+    <p>Get all 7 interactive 3D envelope gates with dual-language EN/TL support, theme toggles, and fully customizable architecture.</p>
     <div class="storelinks" style="margin-top:15px">
       <a href="https://vaultkeeper117.gumroad.com/l/uhzcl" target="_blank" rel="noopener">Get 7-App Bundle ↗</a>
     </div>
