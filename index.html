@@ -15,6 +15,10 @@ header{position:sticky;top:0;z-index:5;background:rgba(9,13,25,.84);backdrop-fil
 section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2{font-size:2rem;margin:6px 0}
 .storegrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.store{border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(130deg,#232b46,#11182a)}.store h3{margin:8px 0;font-size:1.35rem}.price{font-size:1.45rem;color:var(--gold);font-weight:900;margin:12px 0}.storelinks{display:grid;gap:11px;margin-top:15px}.storelinks a{color:#d4ceff;font-size:.9rem}.storelinks a:hover{color:white}
 details.dropdown-section{border:1px solid var(--line);border-radius:20px;background:var(--panel);margin-top:20px;overflow:hidden;transition:.2s}details.dropdown-section[open]{border-color:rgba(169,154,255,.4)}summary.dropdown-toggle{padding:20px 24px;font-weight:800;font-size:1.15rem;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.02);user-select:none}summary.dropdown-toggle::-webkit-details-marker{display:none}summary.dropdown-toggle::after{content:'▼';font-size:.75rem;color:var(--purple);transition:transform .2s}details.dropdown-section[open] summary.dropdown-toggle::after{transform:rotate(180deg)}.dropdown-body{padding:20px;border-top:1px solid var(--line)}
+
+/* Flashing Announcement Banner Style */
+.flash-banner{margin-top:16px;padding:12px 18px;border-radius:12px;background:linear-gradient(110deg,rgba(108,224,208,.1),rgba(169,154,255,.1));border:1px dashed var(--mint);display:flex;align-items:center;gap:12px;font-size:.9rem;font-weight:700}.flash-icon{font-size:1.2rem}.flash-text{color:var(--mint);animation:pulseText 1.8s infinite ease-in-out}@keyframes pulseText{0%,100%{opacity:1}50%{opacity:0.4}}
+
 .support{margin-top:60px;padding:25px;border:1px solid var(--line);border-radius:21px;display:flex;align-items:center;justify-content:space-between;gap:18px;background:#ffffff06}.support p{margin:5px 0 0;color:var(--muted)}footer{margin-top:65px;border-top:1px solid var(--line);padding:27px 0 36px;color:#8491aa;font-size:.82rem}.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 @media(max-width:850px){.featured{grid-template-columns:1fr}.art{min-height:120px}}
 @media(max-width:600px){.navlinks{gap:12px;font-size:.8rem}.navlinks a:nth-child(2){display:none}.nav .btn{font-size:.78rem;padding:9px 11px}.hero{padding:62px 0 44px}.storegrid{grid-template-columns:1fr}.support{align-items:flex-start;flex-direction:column}.container{width:calc(100% - 28px)}}
@@ -42,7 +46,7 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
 <div class="art" aria-hidden="true">💌</div>
 </div></section>
 
-  <!-- 3D GATES SECTION (Naka-List Style na rin) -->
+  <!-- 3D GATES SECTION -->
 <section class="content container" id="gates">
 <div class="sectionhead">
   <div class="eyebrow">Interactive architecture</div>
@@ -62,10 +66,16 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
     <a href="https://handlevault-official.github.io/crisp-master-gate/" target="_blank" rel="noopener">🏛️ Crisp Master Gate — Administrative clearance and root ecosystem override gateway ↗</a>
     <a href="https://handlevault-official.github.io/crisp-career-gate/" target="_blank" rel="noopener">💼 Crisp Career Gate — Full-time role and freelance contract candidate screening gateway ↗</a>
   </div>
+
+  <!-- Flashing Announcement para sa 7 Gates -->
+  <div class="flash-banner">
+    <span class="flash-icon">📢</span>
+    <span class="flash-text">ANNOUNCEMENT: We accept customized 3D envelope designs tailored for your special events and business needs! Message us to request yours today.</span>
+  </div>
 </div>
 </section>
 
-<!-- APP COLLECTION SECTION (Tig-isang stand-out sa 3 sections + Collapsible More Apps sa baba) -->
+<!-- APP COLLECTION SECTION -->
 <section class="content container" id="apps">
 <div class="sectionhead">
   <div class="eyebrow">The app collection</div>
@@ -73,7 +83,6 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
   <p>Find the right workspace for what you want to make or manage.</p>
 </div>
 
-<!-- Standout Featured Apps (Tig-isa sa Creative, Business, Learning/Lifestyle) -->
 <div class="store" style="margin-top:20px; border-color: rgba(108,224,208,.4); background: linear-gradient(130deg,#162b36,#11182a)">
   <div class="gold">✦ Featured Studio Workspaces</div>
   <h3>Core Highlight Apps</h3>
@@ -106,6 +115,12 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
     </div>
   </div>
 </details>
+
+<!-- Flashing Announcement para sa Apps -->
+<div class="flash-banner" style="border-color: var(--purple);">
+  <span class="flash-icon">⚡</span>
+  <span class="flash-text" style="color: var(--purple); animation-duration: 1.4s;">NEWS & REMINDER: Grab your workspace bundles now! Take a scheduled short break every 4.5 hours of continuous coding or studying to stay fresh and focused.</span>
+</div>
 </section>
 
 <!-- STORE SECTION WITH 7 BUNDLES & DIGITAL ASSETS -->
@@ -167,6 +182,12 @@ details.dropdown-section{border:1px solid var(--line);border-radius:20px;backgro
     <a href="https://vaultkeeper117.gumroad.com/l/fanvlu" target="_blank" rel="noopener">WebM Animated Alert ↗</a>
     <a href="https://vaultkeeper117.gumroad.com/l/aihkjh" target="_blank" rel="noopener">YouTube-MP4 Animated Alert ↗</a>
     <a href="https://vaultkeeper117.gumroad.com/l/echfl" target="_blank" rel="noopener">Calm Aesthetic Wallpaper Bundle ↗</a>
+  </div>
+
+  <!-- Flashing Announcement sa Pinakababa / Store Section -->
+  <div class="flash-banner" style="border-color: var(--gold);">
+    <span class="flash-icon">🔔</span>
+    <span class="flash-text" style="color: var(--gold); animation-duration: 2.2s;">STORE UPDATE: All digital products and templates include standard personal & commercial project licensing. Secure your lifetime access passes today!</span>
   </div>
 </div>
 </section>
