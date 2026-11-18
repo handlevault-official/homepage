@@ -41,7 +41,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
     z-index: 9999;
 }
 #app-content {
-    display: none;
+    display: none; /* Nakatago muna ang buong dashboard hangga't hindi pa nag-login */
 }
 
 @media(max-width:850px){.featured{grid-template-columns:1fr}.art{min-height:120px}}
@@ -51,7 +51,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
 </head>
 <body>
 
-    <!-- 1. LOGIN SCREEN (Makikita kapag hindi pa naka-sign in) -->
+    <!-- 1. LOGIN SCREEN (Makikita bago mag-sign in) -->
     <div id="login-container">
         <h2>Welcome to Crisp Suite &amp; HandleVault</h2>
         <p>Please sign in with your Google account to access the ecosystem.</p>
@@ -223,246 +223,74 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                     </div>
                 </div>
             </section>
+
+            <section class="container" style="margin-top: 40px;">
+                <div class="support">
+                    <div>
+                        <h3 style="margin:0">Enjoying Crisp Suite &amp; 3D Gates?</h3>
+                        <p>Your support helps the ecosystem keep growing.</p>
+                    </div>
+                    <a class="btn" href="https://ko-fi.com/handlevaultofficial" target="_blank" rel="noopener">Support on Ko-fi ☕ ↗</a>
+                </div>
+            </section>
         </main>
+
+        <footer>
+            <div class="container foot">
+                <span>© 2026 Crisp Suite. All rights reserved.</span>
+                <span>Made for curious minds, creative work, and interactive gates.</span>
+            </div>
+        </footer>
     </div>
 
-    <!-- 3. JAVASCRIPT LOGIC -->
+    <!-- PAYWALL / TEASER MODAL OVERLAY -->
+    <div id="paywallOverlay">
+        <div class="paywall-card">
+            <div style="font-size:3rem; margin-bottom:12px;">🔒</div>
+            <h3 style="color:#f4f7ff; margin-bottom:10px; font-size:1.4rem;">Unlock Full Crisp Suite Access</h3>
+            <p style="color:#aab5ca; font-size:0.92rem; margin-bottom:20px;">You've unlocked the preview! To access full lifetime source code, custom 3D envelope features, and advanced workspaces, get your Master Pass or Bundle on Gumroad.</p>
+            <a href="https://vaultkeeper117.gumroad.com/l/vmmdiz" target="_blank" class="btn primary" style="width:100%; margin-bottom:10px;">Get Ecosystem Master Pass ↗</a>
+            <button onclick="closePaywall()" style="background:transparent; border:none; color:#aab5ca; font-size:0.85rem; cursor:pointer; text-decoration:underline; margin-top:5px;">Close Preview / Back to Hub</button>
+        </div>
+    </div>
+
+    <!-- 3. JAVASCRIPT LOGIC (Na may Session Persistence) -->
     <script>
+        // Suriin kung naka-login na dati ang user pag-load ng pahina
+        window.addEventListener('DOMContentLoaded', (event) => {
+            if (localStorage.getItem('crisp_logged_in') === 'true') {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('app-content').style.display = 'block';
+            }
+        });
+
         function handleLoginSuccess(response) {
             console.log("Token received:", response.credential);
             
-            // Itago ang login screen
-            document.getElementById('login-container').style.display = 'none';
+            // I-save sa browser na naka-login na siya
+            localStorage.setItem('crisp_logged_in', 'true');
             
-            // Ipakita ang buong app/dashboard
+            // Itago ang login screen at ipakita ang dashboard
+            document.getElementById('login-container').style.display = 'none';
             document.getElementById('app-content').style.display = 'block';
         }
 
         function logoutUser() {
+            // Tanggalin ang save state sa localStorage
+            localStorage.removeItem('crisp_logged_in');
+            
             // Ibalik sa login screen kapag nag-sign out
             document.getElementById('app-content').style.display = 'none';
             document.getElementById('login-container').style.display = 'flex';
         }
+
+        function triggerPaywall() {
+            document.getElementById('paywallOverlay').style.display = 'flex';
+        }
+        function closePaywall() {
+            document.getElementById('paywallOverlay').style.display = 'none';
+        }
     </script>
 
-<body>
-<header><nav class="container">
-<a class="brand" href="#home"><span class="mark">C</span> CRISP SUITE</a>
-<div class="navlinks"><a href="#gates">3D Gates</a><a href="#apps">Explore Apps</a><a href="#store">Store</a><a href="https://ko-fi.com/handlevaultofficial" target="_blank" rel="noopener">Support</a></div>
-<a class="btn primary" href="https://vaultkeeper117.gumroad.com/l/vmmdiz" target="_blank" rel="noopener">Get Master Pass ↗</a>
-</nav></header>
-
-<main id="home">
-<section class="hero container">
-<div class="eyebrow">One ecosystem. Many possibilities.</div>
-<h1>Tools for your<br><span class="gradient">next bright idea.</span></h1>
-<p class="lead">Welcome to Crisp Suite — a growing collection of thoughtfully crafted apps and 3D interactive gate experiences for creativity, productivity, learning, and custom events. Explore the tools and open the experience that fits your next project.</p>
-<div class="actions"><a class="btn primary" href="#gates">Explore 3D Gates ↓</a><a class="btn" href="#apps">Explore Apps ↓</a><a class="btn" href="https://vaultkeeper117.gumroad.com/" target="_blank" rel="noopener">Visit Gumroad Store ↗</a></div>
-</section>
-
-<!-- FEATURED EXPERIENCE: 3D GATES ECOSYSTEM -->
-<section class="container"><div class="featured">
-<div><div class="gold">✦ Featured Experience • Interactive 3D Envelope Gates</div><h2>Crisp Suite 3D Gates Collection</h2><p>Immersive, question-gated digital gateways featuring 3D envelope animations, custom wax seals, dual-language support (English & Tagalog), and fully customizable verification workflows for invites, proposals, careers, launches, milestones, missions, and administration.</p><a class="btn primary" href="#gates">Explore All 7 Gates ↓</a></div>
-<div class="art" aria-hidden="true">💌</div>
-</div></section>
-
-<!-- 3D GATES SECTION -->
-<section class="content container" id="gates">
-<div class="sectionhead">
-  <div class="eyebrow">Interactive architecture</div>
-  <h2>Crisp 3D Envelope Gates (7 Apps Ecosystem)</h2>
-  <p>Fully standardized interactive gates equipped with dual-language support, custom 3D envelope motifs, and secure verification passes.</p>
-</div>
-
-<div class="store" style="margin-top:20px">
-  <h3>Interactive 3D Gates Collection</h3>
-  <p>Direct links to all 7 interactive gate experiences in the ecosystem.</p>
-  <div class="storelinks">
-    <!-- Pwede nating lagyan ng function na 'openSecuredApp' para lumabas ang Paywall Teaser kapag na-click, o direct link -->
-    <a href="https://handlevault-official.github.io/crisp-gate-invite/" target="_blank" rel="noopener">💌 Crisp Gate Invite — Interactive 3D envelope experience for weddings, dates, and RSVPs ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-proposal-gate/" target="_blank" rel="noopener">💐 Crisp Proposal Gate — Romantic and business proposal screening gateway with flower/heart motif ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-mission-gate/" target="_blank" rel="noopener">🎯 Crisp Mission Gate — Strategic mission alignment and core objective verification gateway ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-milestone-gate/" target="_blank" rel="noopener">🛡️ Crisp Milestone Gate — Phase execution and scaling verification gateway with secure locking ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-launch-gate/" target="_blank" rel="noopener">🚀 Crisp Launch Gate — Mainnet go-live and beta release countdown gateway ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-master-gate/" target="_blank" rel="noopener">🏛️ Crisp Master Gate — Administrative clearance and root ecosystem override gateway ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-career-gate/" target="_blank" rel="noopener">💼 Crisp Career Gate — Full-time role and freelance contract candidate screening gateway ↗</a>
-  </div>
-
-  <div class="flash-banner">
-    <span class="flash-icon">📢</span>
-    <span class="flash-text">ANNOUNCEMENT: We accept customized 3D envelope designs tailored for your special events and business needs! Message us to request yours today.</span>
-  </div>
-</div>
-</section>
-
-<!-- APP COLLECTION SECTION -->
-<section class="content container" id="apps">
-<div class="sectionhead">
-  <div class="eyebrow">The app collection</div>
-  <h2>Explore Crisp Suite Apps</h2>
-  <p>Find the right workspace for what you want to make or manage.</p>
-</div>
-
-<div class="store" style="margin-top:20px; border-color: rgba(108,224,208,.4); background: linear-gradient(130deg,#162b36,#11182a)">
-  <div class="gold">✦ Featured Studio Workspaces</div>
-  <h3>Core Highlight Apps</h3>
-  <p>Pangunahing mga workspace na maaari mong subukan mula sa iba't ibang kategorya.</p>
-  <div class="storelinks">
-    <a href="https://handlevault-official.github.io/crisp-pixel-studio/" target="_blank" rel="noopener">🧩 Pixel Art Studio (Creative) — Build pixel-inspired artwork and bring small ideas to life ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-resume-CV-studio/" target="_blank" rel="noopener">📄 Resume &amp; CV Studio (Business) — Prepare polished career documents and professional profiles ↗</a>
-    <a href="https://handlevault-official.github.io/crisp-study-studio/" target="_blank" rel="noopener">📚 Crisp Study Studio (Learning) — Organize study sessions and build better learning habits ↗</a>
-  </div>
-</div>
-
-<details class="dropdown-section">
-  <summary class="dropdown-toggle">More Studio Apps &amp; Specialized Workspaces (Click to open list)</summary>
-  <div class="dropdown-body">
-    <div class="storelinks">
-      <a href="https://handlevault-official.github.io/crisp-moonlit-beads-blueprint-studio/" target="_blank" rel="noopener">🌙 Moonlit Beads Blueprint — A creative blueprint workspace for bead and jewelry projects ↗</a>
-      <a href="https://handlevault-official.github.io/crisp-invoice-studio/" target="_blank" rel="noopener">🧾 Invoice Studio — Create and manage clean, professional billing documents ↗</a>
-      <a href="https://handlevault-official.github.io/gitvoice-clinical-dashboard/" target="_blank" rel="noopener">🩺 GitVoice Clinical Dashboard — A clinical workflow and dashboard experience for healthcare teams ↗</a>
-      <a href="https://handlevault-official.github.io/kusina-ai/" target="_blank" rel="noopener">🍲 Kusina AI — A kitchen companion for food ideas and everyday cooking inspiration ↗</a>
-      <a href="https://handlevault-official.github.io/crisp-creator-studio/" target="_blank" rel="noopener">🎨 Crisp Creator Studio — A flexible creative space for making and shaping content ↗</a>
-      <a href="https://handlevault-official.github.io/crisp-math-studio/" target="_blank" rel="noopener">➗ Crisp Math Studio — Explore mathematical concepts and practice problem-solving ↗</a>
-      <a href="https://handlevault-official.github.io/crisp-science-studio/" target="_blank" rel="noopener">🔬 Crisp Science Studio — A learning workspace for exploring science topics and ideas ↗</a>
-      <a href="https://handlevault-official.github.io/crisp-music-studio/" target="_blank" rel="noopener">🎧 Crisp Music Studio — A workspace for music creation and audio production projects ↗</a>
-      <a href="https://handlevault-official.github.io/crisp-farm-voice-studio/" target="_blank" rel="noopener">🌱 Crisp Farm Voice Studio — A voice-assisted concept for farm and agriculture workflows ↗</a>
-      <a href="https://handlevault-official.github.io/crisp-senior-studio/" target="_blank" rel="noopener">💚 Crisp Senior Studio — An approachable, easy-to-read digital assistant experience ↗</a>
-      <a href="https://handlevault-official.github.io/crisp-kids-studio/" target="_blank" rel="noopener">🧸 Crisp Kids Studio — A bright digital space designed around kid-friendly activities ↗</a>
-      <a href="https://handlevault-official.github.io/crisp-game-studio/" target="_blank" rel="noopener">🕹️ Crisp Game Studio — A playful workspace for game-related creative projects ↗</a>
-      <a href="https://handlevault-official.github.io/crisp-expense-studio/" target="_blank" rel="noopener">💳 Crisp Expense Studio — Track expenses and bring more clarity to everyday budgeting ↗</a>
-    </div>
-  </div>
-</details>
-
-<div class="flash-banner" style="border-color: var(--purple);">
-  <span class="flash-icon">⚡</span>
-  <span class="flash-text" style="color: var(--purple); animation-duration: 1.4s;">NEWS & REMINDER: Grab your workspace bundles now! Take a scheduled short break every 4.5 hours of continuous coding or studying to stay fresh and focused.</span>
-</div>
-</section>
-
-<!-- STORE SECTION WITH 7 BUNDLES & DIGITAL ASSETS -->
-<section class="content container" id="store">
-<div class="sectionhead">
-  <div class="eyebrow">Official digital storefront</div>
-  <h2>Choose your Crisp Suite access</h2>
-  <p>Compare the available bundles, custom options, and continue to the official Gumroad checkout.</p>
-</div>
-
-<div class="storegrid">
-  <div class="store" style="border-color: rgba(242,200,121,.4); background: linear-gradient(130deg,#2b2618,#161a29)">
-    <div class="gold">✦ 7 Apps Ecosystem Bundle • Fully Customizable</div>
-    <h3>Crisp Suite 3D Gates Bundle (7 Apps)</h3>
-    <p>Get all 7 interactive 3D envelope gates with dual-language EN/TL support, theme toggles, and fully customizable architecture.</p>
-    <div class="storelinks" style="margin-top:15px">
-      <a href="https://vaultkeeper117.gumroad.com/l/uhzcl" target="_blank" rel="noopener">Get 7-App Bundle ↗</a>
-    </div>
-  </div>
-
-  <div class="store">
-    <div class="gold">✦ Complete ecosystem bundle</div>
-    <h3>Ecosystem Master Pass Bundle</h3>
-    <p>Explore the complete ecosystem bundle and its included products on Gumroad.</p>
-    <div class="storelinks" style="margin-top:15px">
-      <a href="https://vaultkeeper117.gumroad.com/l/vmmdiz" target="_blank" rel="noopener">Get Ecosystem Master Pass ↗</a>
-    </div>
-  </div>
-</div>
-
-<div class="storegrid" style="margin-top:16px">
-  <div class="store">
-    <div class="gold">✦ Individual collection pack</div>
-    <h3>HandleVault Studio Hub</h3>
-    <p>View the individual Studio Hub offer and product details on Gumroad.</p>
-    <div class="storelinks" style="margin-top:15px">
-      <a href="https://vaultkeeper117.gumroad.com/l/jcfhwv" target="_blank" rel="noopener">Get Individual Pack ↗</a>
-    </div>
-  </div>
-
-  <div class="store">
-    <div class="gold">✦ Custom Gate Solutions</div>
-    <h3>Custom Integration &amp; Branding</h3>
-    <p>Need custom branding, specific languages, or tailored workflows for your gates or apps? Get in touch.</p>
-    <div class="storelinks" style="margin-top:15px">
-      <a href="https://ko-fi.com/handlevaultofficial" target="_blank" rel="noopener">Contact for Customization ↗</a>
-    </div>
-  </div>
-</div>
-
-<div class="store" style="margin-top:16px">
-  <h3>More digital products</h3>
-  <p>Explore other creative assets and downloads from the official store.</p>
-  <div class="storelinks">
-    <a href="https://vaultkeeper117.gumroad.com/l/xwzxwp" target="_blank" rel="noopener">Universal Product Template (Pixel Art Pack) ↗</a>
-    <a href="https://vaultkeeper117.gumroad.com/l/copzec" target="_blank" rel="noopener">Free WebM Sample Alert ↗</a>
-    <a href="https://vaultkeeper117.gumroad.com/l/dkmedq" target="_blank" rel="noopener">Standard MP4 Animated Alert ↗</a>
-    <a href="https://vaultkeeper117.gumroad.com/l/lhhxej" target="_blank" rel="noopener">Pixel Art Ninja Cat ↗</a>
-    <a href="https://vaultkeeper117.gumroad.com/l/fanvlu" target="_blank" rel="noopener">WebM Animated Alert ↗</a>
-    <a href="https://vaultkeeper117.gumroad.com/l/aihkjh" target="_blank" rel="noopener">YouTube-MP4 Animated Alert ↗</a>
-    <a href="https://vaultkeeper117.gumroad.com/l/echfl" target="_blank" rel="noopener">Calm Aesthetic Wallpaper Bundle ↗</a>
-  </div>
-
-  <div class="flash-banner" style="border-color: var(--gold);">
-    <span class="flash-icon">🔔</span>
-    <span class="flash-text" style="color: var(--gold); animation-duration: 2.2s;">STORE UPDATE: All digital products and templates include standard personal & commercial project licensing. Secure your lifetime access passes today!</span>
-  </div>
-</div>
-</section>
-  
-<section class="container"><div class="support"><div><h3 style="margin:0">Enjoying Crisp Suite &amp; 3D Gates?</h3><p>Your support helps the ecosystem keep growing.</p></div><a class="btn" href="https://ko-fi.com/handlevaultofficial" target="_blank" rel="noopener">Support on Ko-fi ☕ ↗</a></div></section>
-</main>
-
-<footer><div class="container foot"><span>© 2026 Crisp Suite. All rights reserved.</span><span>Made for curious minds, creative work, and interactive gates.</span></div></footer>
-
-<!-- STORE SECTION SA INDEX.HTML -->
-<section class="content container" id="store">
-<div class="sectionhead">
-  <div class="eyebrow">Official digital storefront</div>
-  <h2>Choose your Crisp Suite access</h2>
-  <p>Compare the available bundles, custom options, and continue to the official Gumroad checkout.</p>
-</div>
-
-<div class="storegrid">
-  <div class="store" style="border-color: rgba(242,200,121,.4); background: linear-gradient(130deg,#2b2618,#161a29)">
-    <div class="gold">✦ 7 Apps Ecosystem Bundle • Fully Customizable</div>
-    <h3>Crisp Suite 3D Gates Bundle (7 Apps)</h3>
-    <p>Get all 7 interactive 3D envelope gates with dual-language EN/TL support, theme toggles, and fully customizable architecture.</p>
-    <div class="storelinks" style="margin-top:15px">
-      <a href="https://vaultkeeper117.gumroad.com/l/uhzcl" target="_blank" rel="noopener">Get 7-App Bundle via Gumroad ↗</a>
-    </div>
-  </div>
-
-  <div class="store">
-    <div class="gold">✦ Complete ecosystem bundle</div>
-    <h3>Ecosystem Master Pass Bundle</h3>
-    <p>Explore the complete ecosystem bundle and its included products on Gumroad.</p>
-    <div class="storelinks" style="margin-top:15px">
-      <a href="https://vaultkeeper117.gumroad.com/l/vmmdiz" target="_blank" rel="noopener">Get Ecosystem Master Pass via Gumroad ↗</a>
-    </div>
-  </div>
-</div>
-  
-</section>
-
-<!-- PAYWALL / TEASER MODAL OVERLAY (Kusang lilitaw para sa marketing/upsell kapag kinakailangan) -->
-<div id="paywallOverlay">
-  <div class="paywall-card">
-    <div style="font-size:3rem; margin-bottom:12px;">🔒</div>
-    <h3 style="color:#f4f7ff; margin-bottom:10px; font-size:1.4rem;">Unlock Full Crisp Suite Access</h3>
-    <p style="color:#aab5ca; font-size:0.92rem; margin-bottom:20px;">You've unlocked the preview! To access full lifetime source code, custom 3D envelope features, and advanced workspaces, get your Master Pass or Bundle on Gumroad.</p>
-    <a href="https://vaultkeeper117.gumroad.com/l/vmmdiz" target="_blank" class="btn primary" style="width:100%; margin-bottom:10px;">Get Ecosystem Master Pass ↗</a>
-    <button onclick="closePaywall()" style="background:transparent; border:none; color:#aab5ca; font-size:0.85rem; cursor:pointer; text-decoration:underline; margin-top:5px;">Close Preview / Back to Hub</button>
-  </div>
-</div>
-
-<script>
-// Optional function para ma-trigger ang paywall preview kung gugustuhin mo sa mga apps mo
-function triggerPaywall() {
-  document.getElementById('paywallOverlay').style.display = 'flex';
-}
-function closePaywall() {
-  document.getElementById('paywallOverlay').style.display = 'none';
-}
-</script>
 </body>
 </html>
