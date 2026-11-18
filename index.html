@@ -6,6 +6,11 @@
 <meta name="theme-color" content="#0b1020">
 <meta name="description" content="Explore Crisp Suite — creative, productivity, learning, business applications, and interactive 3D envelope gates ecosystem.">
 <title>Crisp Suite — Official App Hub & Interactive Gates</title>
+  
+<!-- Google Identity Services Script -->
+<script src="https://accounts.github.com/gsi/client" async defer></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+  
 <style>
 :root{color-scheme:dark;--bg:#090d19;--panel:#121a2d;--line:rgba(190,205,235,.14);--text:#f4f7ff;--muted:#aab5ca;--purple:#a99aff;--mint:#6ce0d0;--gold:#f2c879;--rose:#f43f5e}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 12% 0%,rgba(115,94,220,.18),transparent 34rem),radial-gradient(ellipse at 90% 15%,rgba(65,190,180,.1),transparent 30rem),var(--bg);color:var(--text);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}.container{width:min(1160px,calc(100% - 36px));margin:auto}
@@ -14,21 +19,89 @@ header{position:sticky;top:0;z-index:5;background:rgba(9,13,25,.84);backdrop-fil
 .featured{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;padding:26px;border:1px solid rgba(169,154,255,.3);border-radius:25px;background:linear-gradient(125deg,rgba(111,94,210,.17),rgba(28,45,65,.55))}.gold{color:var(--gold);font-size:.75rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}.featured h2{font-size:clamp(1.7rem,3vw,2.4rem);margin:8px 0}.featured p,.sectionhead p,.store p{color:var(--muted)}.art{display:grid;place-items:center;min-height:170px;border-radius:18px;background:radial-gradient(circle,rgba(169,154,255,.35),transparent 60%),rgba(0,0,0,.18);font-size:5rem}
 section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2{font-size:2rem;margin:6px 0}
 .storegrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.store{border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(130deg,#232b46,#11182a)}.store h3{margin:8px 0;font-size:1.35rem}.price{font-size:1.45rem;color:var(--gold);font-weight:900;margin:12px 0}.storelinks{display:grid;gap:11px;margin-top:15px}.storelinks a{color:#d4ceff;font-size:.9rem}.storelinks a:hover{color:white}
-details.dropdown-section{border:1px solid var(--line);border-radius:20px;background:var(--panel);margin-top:20px;overflow:hidden;transition:.2s}details.dropdown-section[open]{border-color:rgba(169,154,255,.4)}summary.dropdown-toggle{padding:20px 24px;font-weight:800;font-size:1.15rem;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.02);user-select:none}summary.dropdown-toggle::-webkit-details-marker{display:none}summary.dropdown-toggle::after{content:'▼';font-size:.75rem;color:var(--purple);transition:transform .2s}details.dropdown-section[open] summary.dropdown-toggle::after{transform:rotate(180deg)}.dropdown-body{padding:20px;border-top:1px solid var(--line)}
-
-/* Flashing Announcement Banner Style */
-.flash-banner{margin-top:16px;padding:12px 18px;border-radius:12px;background:linear-gradient(110deg,rgba(108,224,208,.1),rgba(169,154,255,.1));border:1px dashed var(--mint);display:flex;align-items:center;gap:12px;font-size:.9rem;font-weight:700}.flash-icon{font-size:1.2rem}.flash-text{color:var(--mint);animation:pulseText 1.8s infinite ease-in-out}@keyframes pulseText{0%,100%{opacity:1}50%{opacity:0.4}}
 
 /* Teaser Paywall Overlay Modal Style */
 #paywallOverlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(9,13,25,0.88);backdrop-filter:blur(10px);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
 .paywall-card{max-width:460px;width:100%;background:#121a2d;border:1px solid rgba(169,154,255,0.4);border-radius:24px;padding:32px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,0.5);}
 
 .support{margin-top:60px;padding:25px;border:1px solid var(--line);border-radius:21px;display:flex;align-items:center;justify-content:space-between;gap:18px;background:#ffffff06}.support p{margin:5px 0 0;color:var(--muted)}footer{margin-top:65px;border-top:1px solid var(--line);padding:27px 0 36px;color:#8491aa;font-size:.82rem}.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* Login Container Styles */
+#login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+#app-content {
+    display: none;
+}
+
 @media(max-width:850px){.featured{grid-template-columns:1fr}.art{min-height:120px}}
 @media(max-width:600px){.navlinks{gap:12px;font-size:.8rem}.navlinks a:nth-child(2){display:none}.nav .btn{font-size:.78rem;padding:9px 11px}.hero{padding:62px 0 44px}.storegrid{grid-template-columns:1fr}.support{align-items:flex-start;flex-direction:column}.container{width:calc(100% - 28px)}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
+<body>
+
+    <!-- 1. LOGIN SCREEN (Makikita kapag hindi pa naka-sign in) -->
+    <div id="login-container">
+        <h2>Welcome to HandleVault Suite</h2>
+        <p>Please sign in with your Google account to access your vault.</p>
+        
+        <!-- Google Sign-In Button Container -->
+        <div id="g_id_onload"
+             data-client_id="1072305306917-dbnsf87n7bk20a06c9tsm8bbbup84nqf.apps.googleusercontent.com"
+             data-callback="handleLoginSuccess"
+             data-auto_select="false">
+        </div>
+        <div class="g_id_signin" data-type="standard" data-size="large"></div>
+    </div>
+
+    <!-- 2. MAIN APP / DASHBOARD (Lilitaw lang pagkatapos mag-login) -->
+    <div id="app-content">
+        <header>
+            <nav class="container">
+                <a class="brand" href="#home"><span class="mark">C</span> CRISP SUITE</a>
+                <div class="navlinks">
+                    <a href="#gates">3D Gates</a>
+                    <a href="#apps">Explore Apps</a>
+                    <a href="#store">Store</a>
+                    <a href="https://ko-fi.com/handlevaultofficial" target="_blank" rel="noopener">Support</a>
+                </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <a class="btn primary" href="https://vaultkeeper117.gumroad.com/l/vmmdiz" target="_blank" rel="noopener">Get Master Pass ↗</a>
+                    <button onclick="logoutUser()" class="btn" style="cursor: pointer;">Sign Out</button>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container" style="margin-top: 40px;">
+            <h2>Naka-login ka na nang matagumpay!</h2>
+            <p>Dito na makikita ang mga features at files ng iyong HandleVault at Crisp Suite.</p>
+        </div>
+    </div>
+
+    <!-- 3. JAVASCRIPT LOGIC -->
+    <script>
+        function handleLoginSuccess(response) {
+            console.log("Token received:", response.credential);
+            
+            // Itago ang login screen
+            document.getElementById('login-container').style.display = 'none';
+            
+            // Ipakita ang buong app/dashboard
+            document.getElementById('app-content').style.display = 'block';
+        }
+
+        function logoutUser() {
+            // Ibalik sa login screen kapag nag-sign out
+            document.getElementById('app-content').style.display = 'none';
+            document.getElementById('login-container').style.display = 'flex';
+        }
+    </script>
 
 <body>
 <header><nav class="container">
