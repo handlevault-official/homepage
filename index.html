@@ -149,7 +149,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                     <h3>Core Highlight Apps</h3>
                     <p>Pangunahing mga workspace na maaari mong subukan mula sa iba't ibang kategorya.</p>
                     <div class="storelinks">
-                        <a href="https://handlevault-official.github.io/crisp-pixel-studio/" target="_blank" rel="noopener">🧩 Pixel Art Studio (Creative) — Build pixel-inspired artwork and bring small ideas to life ↗</a>
+                        <a href="https://vaultkeeper117.gumroad.com/l/farpze" target="_blank" rel="noopener">✉️ HandleVault Mail &amp; Wax Stamps ($1 USD / ₱29 Local) — In-app catalog &amp; live preview stamps for notes, journals, and messages ↗</a>
                         <a href="https://handlevault-official.github.io/crisp-resume-CV-studio/" target="_blank" rel="noopener">📄 Resume &amp; CV Studio (Business) — Prepare polished career documents and professional profiles ↗</a>
                         <a href="https://handlevault-official.github.io/crisp-study-studio/" target="_blank" rel="noopener">📚 Crisp Study Studio (Learning) — Organize study sessions and build better learning habits ↗</a>
                     </div>
@@ -175,15 +175,24 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                 </details>
             </section>
 
-            <!-- STORE SECTION WITH 7 BUNDLES & DIGITAL ASSETS -->
+            <!-- STORE SECTION WITH BUNDLES & STAMP PACK -->
             <section class="content container" id="store">
                 <div class="sectionhead">
                     <div class="eyebrow">Official digital storefront</div>
                     <h2>Choose your Crisp Suite access</h2>
-                    <p>Compare the available bundles, custom options, and continue to the official Gumroad checkout.</p>
+                    <p>Compare the available stamp packs, bundles, custom options, and continue to the official Gumroad checkout.</p>
                 </div>
 
                 <div class="storegrid">
+                    <div class="store" style="border-color: rgba(108,224,208,.45); background: linear-gradient(130deg,#1a2f3a,#11182a)">
+                        <div class="gold">✦ Catalog Stamp Pack • $1 USD / ₱29 Local</div>
+                        <h3>HandleVault Mail &amp; Wax Stamps</h3>
+                        <p>Curated stamp catalog pack for in-app selection and live preview—great for mail, notes, journals, and messages using native Unicode emojis (no system keyboard install needed).</p>
+                        <div class="storelinks" style="margin-top:15px">
+                            <a href="https://vaultkeeper117.gumroad.com/l/farpze" target="_blank" rel="noopener">Get Stamp Pack ($1 / ₱29) ↗</a>
+                        </div>
+                    </div>
+
                     <div class="store" style="border-color: rgba(242,200,121,.4); background: linear-gradient(130deg,#2b2618,#161a29)">
                         <div class="gold">✦ 7 Apps Ecosystem Bundle • Fully Customizable</div>
                         <h3>Crisp Suite 3D Gates Bundle (7 Apps)</h3>
@@ -192,7 +201,9 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                             <a href="https://vaultkeeper117.gumroad.com/l/uhzcl" target="_blank" rel="noopener">Get 7-App Bundle ↗</a>
                         </div>
                     </div>
+                </div>
 
+                <div class="storegrid" style="margin-top:16px">
                     <div class="store">
                         <div class="gold">✦ Complete ecosystem bundle</div>
                         <h3>Ecosystem Master Pass Bundle</h3>
@@ -201,9 +212,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                             <a href="https://vaultkeeper117.gumroad.com/l/vmmdiz" target="_blank" rel="noopener">Get Ecosystem Master Pass ↗</a>
                         </div>
                     </div>
-                </div>
 
-                <div class="storegrid" style="margin-top:16px">
                     <div class="store">
                         <div class="gold">✦ Individual collection pack</div>
                         <h3>HandleVault Studio Hub</h3>
@@ -212,7 +221,9 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                             <a href="https://vaultkeeper117.gumroad.com/l/jcfhwv" target="_blank" rel="noopener">Get Individual Pack ↗</a>
                         </div>
                     </div>
+                </div>
 
+                <div class="storegrid" style="margin-top:16px">
                     <div class="store">
                         <div class="gold">✦ Custom Gate Solutions</div>
                         <h3>Custom Integration &amp; Branding</h3>
@@ -265,9 +276,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
         });
 
         function handleLoginSuccess(response) {
-            console.log("Token received:", response.credential);
-            
-            // I-save sa browser na naka-login na siya
+            // I-save sa browser na naka-login na siya (hindi nilo-log ang raw credential token)
             localStorage.setItem('crisp_logged_in', 'true');
             
             // Itago ang login screen at ipakita ang dashboard
