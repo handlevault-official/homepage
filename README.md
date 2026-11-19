@@ -32,17 +32,6 @@ Crisp Suite integrates automated platform sales and licensing (Gumroad, Ko-fi) i
 * **Crisp Game Studio:** https://handlevault-official.github.io/crisp-game-studio/
 * **Crisp Expense Studio:** https://handlevault-official.github.io/crisp-expense-studio/
 
-## 💎 Gumroad Store Hub & Digital Assets
-* **Main Store:** https://vaultkeeper117.gumroad.com
-* **HandleVault Studio Hub (Individual Pack - ₱1,999):** https://vaultkeeper117.gumroad.com/l/ztzxpg
-* **Universal Product Template (Pixel Art Pack):** https://vaultkeeper117.gumroad.com/l/xwzxwp
-* **Free WebM Sample Alert (Resub #3):** https://vaultkeeper117.gumroad.com/l/copzec
-* **Standard MP4 Format Animated Alert File:** https://vaultkeeper117.gumroad.com/l/dkmedq
-* **Pixel Art Ninja Cat (Static Images & 512px Discord Avatars):** https://vaultkeeper117.gumroad.com/l/lhhxej
-* **WebM Animated Alert File:** https://vaultkeeper117.gumroad.com/l/fanvlu
-* **YouTube-MP4 Animated Alert File:** https://vaultkeeper117.gumroad.com/l/aihkjh
-* **Calm Aesthetic Wallpaper Bundle:** https://vaultkeeper117.gumroad.com/l/echfl
-
 ## 🔥 All-Access Bundle & Master Pass
 * **HandleVault Studio: Ecosystem Master Pass – Complete Lifetime Access to All 17 Offline Web Apps, Studios & Creator Assets (Bundle):** https://vaultkeeper117.gumroad.com/l/vmmdiz
 
