@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b1020">
+<meta name="theme-color" content="#14171c">
 <meta name="description" content="Explore Crisp Suite — creative, productivity, learning, business applications, and interactive 3D envelope gates ecosystem.">
 <title>Crisp Suite — Official App Hub & Interactive Gates</title>
   
@@ -11,45 +11,259 @@
 <script src="https://accounts.google.com/gsi/client" async defer></script>
   
 <style>
-:root{color-scheme:dark;--bg:#090d19;--panel:#121a2d;--line:rgba(190,205,235,.14);--text:#f4f7ff;--muted:#aab5ca;--purple:#a99aff;--mint:#6ce0d0;--gold:#f2c879;--rose:#f43f5e}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 12% 0%,rgba(115,94,220,.18),transparent 34rem),radial-gradient(ellipse at 90% 15%,rgba(65,190,180,.1),transparent 30rem),var(--bg);color:var(--text);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}.container{width:min(1160px,calc(100% - 36px));margin:auto}
-header{position:sticky;top:0;z-index:5;background:rgba(9,13,25,.84);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:.04em}.mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--mint),var(--purple));color:#101326;font-weight:950}.navlinks{display:flex;gap:22px;color:var(--muted);font-size:.9rem}.navlinks a:hover{color:white}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 17px;border-radius:999px;font-weight:800;font-size:.9rem;border:1px solid var(--line);transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{background:linear-gradient(110deg,var(--mint),#b9adff);color:#0b1020;border:0}.hero{padding:82px 0 58px}.eyebrow{color:var(--mint);font-size:.76rem;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);line-height:.99;letter-spacing:-.065em;margin:18px 0}.gradient{background:linear-gradient(100deg,#fff,#b9b0ff 55%,#73e2d4);background-clip:text;color:transparent}.lead{max-width:670px;color:var(--muted);font-size:1.1rem}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.featured{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;padding:26px;border:1px solid rgba(169,154,255,.3);border-radius:25px;background:linear-gradient(125deg,rgba(111,94,210,.17),rgba(28,45,65,.55))}.gold{color:var(--gold);font-size:.75rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}.featured h2{font-size:clamp(1.7rem,3vw,2.4rem);margin:8px 0}.featured p,.sectionhead p,.store p{color:var(--muted)}.art{display:grid;place-items:center;min-height:170px;border-radius:18px;background:radial-gradient(circle,rgba(169,154,255,.35),transparent 60%),rgba(0,0,0,.18);font-size:5rem}
-section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2{font-size:2rem;margin:6px 0}
-.storegrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.store{border:1px solid var(--line);border-radius:22px;padding:24px;background:linear-gradient(130deg,#232b46,#11182a)}.store h3{margin:8px 0;font-size:1.35rem}.price{font-size:1.45rem;color:var(--gold);font-weight:900;margin:12px 0}.storelinks{display:grid;gap:11px;margin-top:15px}.storelinks a{color:#d4ceff;font-size:.9rem}.storelinks a:hover{color:white}
+:root{
+  color-scheme:dark;
+  --bg:#14171c;
+  --panel:#1b1f26;
+  --line:rgba(226,221,210,.12);
+  --text:#ebe6dc;
+  --muted:#a6a095;
+  --pop:#d97757; /* Iisang pop color lang: Muted Terracotta */
+  --pop-soft:rgba(217,119,87,.14);
+  --ink-line:rgba(226,221,210,.075)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  position:relative;
+  overflow-x:hidden
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1160px,calc(100% - 36px));margin:auto;position:relative;z-index:2}
+
+/* Banayad na Line Art Background Layer */
+.line-bg{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:1;
+  pointer-events:none;
+  opacity:.95
+}
+.line-bg path,
+.line-bg circle,
+.line-bg line{
+  stroke:var(--ink-line);
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:5;
+  background:rgba(20,23,28,.86);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)
+}
+nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.04em}
+.mark{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  background:var(--pop);
+  color:#14171c;
+  font-weight:900
+}
+.navlinks{display:flex;gap:22px;color:var(--muted);font-size:.9rem}
+.navlinks a:hover{color:var(--text)}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:11px 17px;
+  border-radius:999px;
+  font-weight:750;
+  font-size:.9rem;
+  border:1px solid var(--line);
+  background:var(--panel);
+  color:var(--text);
+  transition:.2s
+}
+.btn:hover{transform:translateY(-1px);border-color:rgba(226,221,210,.28)}
+.primary{
+  background:var(--pop);
+  color:#14171c;
+  border:0
+}
+.primary:hover{background:#e28466}
+
+.hero{padding:82px 0 58px}
+.eyebrow{
+  color:var(--muted);
+  font-size:.76rem;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase
+}
+.hero h1{
+  font-size:clamp(2.8rem,7vw,5.2rem);
+  line-height:1.02;
+  letter-spacing:-.05em;
+  margin:18px 0
+}
+.pop-word{color:var(--pop)} /* Iisang pop color emphasis */
+.lead{max-width:670px;color:var(--muted);font-size:1.08rem}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+
+.featured{
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:22px;
+  padding:26px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:var(--panel)
+}
+.tag-label{
+  color:var(--pop);
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase
+}
+.featured h2{font-size:clamp(1.7rem,3vw,2.35rem);margin:8px 0}
+.featured p,.sectionhead p,.store p{color:var(--muted)}
+.art{
+  display:grid;
+  place-items:center;
+  min-height:170px;
+  border-radius:18px;
+  border:1px dashed rgba(226,221,210,.18);
+  background:rgba(20,23,28,.45);
+  font-size:4.2rem
+}
+
+section.content{padding-top:65px}
+.sectionhead{margin-bottom:20px}
+.sectionhead h2{font-size:2rem;margin:6px 0}
+
+.storegrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.store{
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:24px;
+  background:var(--panel)
+}
+.store h3{margin:8px 0;font-size:1.32rem}
+.storelinks{display:grid;gap:11px;margin-top:15px}
+.storelinks a{color:var(--text);font-size:.9rem;opacity:.88}
+.storelinks a:hover{color:var(--pop);opacity:1}
+
+.flash-banner{
+  margin-top:20px;
+  padding:14px;
+  background:var(--pop-soft);
+  border:1px solid rgba(217,119,87,.45);
+  border-radius:14px;
+  color:var(--text)
+}
 
 /* Teaser Paywall Overlay Modal Style */
-#paywallOverlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(9,13,25,0.88);backdrop-filter:blur(10px);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
-.paywall-card{max-width:460px;width:100%;background:#121a2d;border:1px solid rgba(169,154,255,0.4);border-radius:24px;padding:32px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,0.5);}
+#paywallOverlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(14,17,22,0.88);
+  backdrop-filter:blur(10px);
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px
+}
+.paywall-card{
+  max-width:460px;
+  width:100%;
+  background:var(--panel);
+  border:1px solid rgba(217,119,87,.45);
+  border-radius:24px;
+  padding:32px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,0.45)
+}
 
-.support{margin-top:60px;padding:25px;border:1px solid var(--line);border-radius:21px;display:flex;align-items:center;justify-content:space-between;gap:18px;background:#ffffff06}.support p{margin:5px 0 0;color:var(--muted)}footer{margin-top:65px;border-top:1px solid var(--line);padding:27px 0 36px;color:#8491aa;font-size:.82rem}.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.support{
+  margin-top:60px;
+  padding:25px;
+  border:1px solid var(--line);
+  border-radius:21px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  background:var(--panel)
+}
+.support p{margin:5px 0 0;color:var(--muted)}
+
+footer{
+  margin-top:65px;
+  border-top:1px solid var(--line);
+  padding:27px 0 36px;
+  color:var(--muted);
+  font-size:.82rem
+}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 /* Login Container Styles */
 #login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    background: var(--bg);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background: var(--bg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
 }
+#login-container p{color:var(--muted);max-width:420px;margin:8px 0 20px}
 #app-content {
-    display: none; /* Nakatago muna ang buong dashboard hangga't hindi pa nag-login */
+  display: none;
 }
 
 @media(max-width:850px){.featured{grid-template-columns:1fr}.art{min-height:120px}}
-@media(max-width:600px){.navlinks{gap:12px;font-size:.8rem}.navlinks a:nth-child(2){display:none}.nav .btn{font-size:.78rem;padding:9px 11px}.hero{padding:62px 0 44px}.storegrid{grid-template-columns:1fr}.support{align-items:flex-start;flex-direction:column}.container{width:calc(100% - 28px)}}
+@media(max-width:600px){
+  .navlinks{gap:12px;font-size:.8rem}
+  .navlinks a:nth-child(2){display:none}
+  .nav .btn{font-size:.78rem;padding:9px 11px}
+  .hero{padding:62px 0 44px}
+  .storegrid{grid-template-columns:1fr}
+  .support{align-items:flex-start;flex-direction:column}
+  .container{width:calc(100% - 28px)}
+}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
 <body>
+
+    <!-- Banayad na Line Art Background SVG -->
+    <svg class="line-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path stroke-width="1.2" d="M-60,180 C240,90 460,290 780,175 C1060,75 1260,220 1500,140" />
+        <path stroke-width="1" d="M-40,520 C260,630 520,420 840,540 C1120,645 1290,470 1510,560" />
+        <path stroke-width="1.1" d="M180,-40 C140,210 340,380 220,680 C160,820 260,890 310,960" />
+        <path stroke-width="1" d="M1160,-30 C1090,230 1290,430 1130,720 C1070,830 1150,885 1190,950" />
+        <circle cx="980" cy="240" r="110" stroke-width="1" />
+        <circle cx="980" cy="240" r="78" stroke-width=".8" />
+        <path stroke-width="1" d="M430,740 Q510,660 590,740 T750,740" />
+        <line x1="80" y1="360" x2="290" y2="360" stroke-width=".8" />
+        <line x1="1120" y1="610" x2="1360" y2="610" stroke-width=".8" />
+    </svg>
 
     <!-- 1. LOGIN SCREEN (Makikita bago mag-sign in) -->
     <div id="login-container">
@@ -86,7 +300,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
         <main id="home">
             <section class="hero container">
                 <div class="eyebrow">One ecosystem. Many possibilities.</div>
-                <h1>Tools for your<br><span class="gradient">next bright idea.</span></h1>
+                <h1>Tools for your<br><span class="pop-word">next bright idea.</span></h1>
                 <p class="lead">Welcome to Crisp Suite — a growing collection of thoughtfully crafted apps and 3D interactive gate experiences for creativity, productivity, learning, and custom events. Explore the tools and open the experience that fits your next project.</p>
                 <div class="actions">
                     <a class="btn primary" href="#gates">Explore 3D Gates ↓</a>
@@ -99,7 +313,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
             <section class="container">
                 <div class="featured">
                     <div>
-                        <div class="gold">✦ Featured Experience • Interactive 3D Envelope Gates</div>
+                        <div class="tag-label">✦ Featured Experience • Interactive 3D Envelope Gates</div>
                         <h2>Crisp Suite 3D Gates Collection</h2>
                         <p>Immersive, question-gated digital gateways featuring 3D envelope animations, custom wax seals, dual-language support (English &amp; Tagalog), and fully customizable verification workflows for invites, proposals, careers, launches, milestones, missions, and administration.</p>
                         <a class="btn primary" href="#gates">Explore All 7 Gates ↓</a>
@@ -129,7 +343,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                         <a href="https://handlevault-official.github.io/crisp-career-gate/" target="_blank" rel="noopener">💼 Crisp Career Gate — Full-time role and freelance contract candidate screening gateway ↗</a>
                     </div>
 
-                    <div class="flash-banner" style="margin-top: 20px; padding: 12px; background: rgba(242,200,121,.1); border: 1px solid var(--gold); border-radius: 12px;">
+                    <div class="flash-banner">
                         <span class="flash-icon">📢</span>
                         <span class="flash-text">ANNOUNCEMENT: We accept customized 3D envelope designs tailored for your special events and business needs! Message us to request yours today.</span>
                     </div>
@@ -144,8 +358,8 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                     <p>Find the right workspace for what you want to make or manage.</p>
                 </div>
 
-                <div class="store" style="margin-top:20px; border-color: rgba(108,224,208,.4); background: linear-gradient(130deg,#162b36,#11182a)">
-                    <div class="gold">✦ Featured Studio Workspaces</div>
+                <div class="store" style="margin-top:20px">
+                    <div class="tag-label">✦ Featured Studio Workspaces</div>
                     <h3>Core Highlight Apps</h3>
                     <p>Pangunahing mga workspace na maaari mong subukan mula sa iba't ibang kategorya.</p>
                     <div class="storelinks">
@@ -156,7 +370,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                 </div>
 
                 <details class="store" style="margin-top:20px; cursor: pointer;">
-                    <summary style="font-weight: 700; font-size: 1.1rem; color: var(--mint);">More Studio Apps &amp; Specialized Workspaces (Click to open list)</summary>
+                    <summary style="font-weight: 700; font-size: 1.1rem; color: var(--pop);">More Studio Apps &amp; Specialized Workspaces (Click to open list)</summary>
                     <div class="storelinks" style="margin-top:15px;">
                         <a href="https://handlevault-official.github.io/crisp-moonlit-beads-blueprint-studio/" target="_blank" rel="noopener">🌙 Moonlit Beads Blueprint — A creative blueprint workspace for bead and jewelry projects ↗</a>
                         <a href="https://handlevault-official.github.io/crisp-invoice-studio/" target="_blank" rel="noopener">🧾 Invoice Studio — Create and manage clean, professional billing documents ↗</a>
@@ -184,8 +398,8 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                 </div>
 
                 <div class="storegrid">
-                    <div class="store" style="border-color: rgba(108,224,208,.45); background: linear-gradient(130deg,#1a2f3a,#11182a)">
-                        <div class="gold">✦ Catalog Stamp Pack • $1 USD / ₱29 Local</div>
+                    <div class="store">
+                        <div class="tag-label">✦ Catalog Stamp Pack • $1 USD / ₱29 Local</div>
                         <h3>HandleVault Mail &amp; Wax Stamps</h3>
                         <p>Curated stamp catalog pack for in-app selection and live preview—great for mail, notes, journals, and messages using native Unicode emojis (no system keyboard install needed).</p>
                         <div class="storelinks" style="margin-top:15px">
@@ -193,8 +407,8 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                         </div>
                     </div>
 
-                    <div class="store" style="border-color: rgba(242,200,121,.4); background: linear-gradient(130deg,#2b2618,#161a29)">
-                        <div class="gold">✦ 7 Apps Ecosystem Bundle • Fully Customizable</div>
+                    <div class="store">
+                        <div class="tag-label">✦ 7 Apps Ecosystem Bundle • Fully Customizable</div>
                         <h3>Crisp Suite 3D Gates Bundle (7 Apps)</h3>
                         <p>Get all 7 interactive 3D envelope gates with dual-language EN/TL support, theme toggles, and fully customizable architecture.</p>
                         <div class="storelinks" style="margin-top:15px">
@@ -203,9 +417,9 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                     </div>
                 </div>
 
-                <div class="storegrid" style="margin-top:16px">
+                 <div class="storegrid" style="margin-top:16px">
                     <div class="store">
-                        <div class="gold">✦ Complete ecosystem bundle</div>
+                        <div class="tag-label">✦ Complete ecosystem bundle</div>
                         <h3>Ecosystem Master Pass Bundle</h3>
                         <p>Explore the complete ecosystem bundle and its included products on Gumroad.</p>
                         <div class="storelinks" style="margin-top:15px">
@@ -214,7 +428,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                     </div>
 
                     <div class="store">
-                        <div class="gold">✦ Individual collection pack</div>
+                        <div class="tag-label">✦ Individual collection pack</div>
                         <h3>HandleVault Studio Hub</h3>
                         <p>View the individual Studio Hub offer and product details on Gumroad.</p>
                         <div class="storelinks" style="margin-top:15px">
@@ -225,7 +439,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
 
                 <div class="storegrid" style="margin-top:16px">
                     <div class="store">
-                        <div class="gold">✦ Custom Gate Solutions</div>
+                        <div class="tag-label">✦ Custom Gate Solutions</div>
                         <h3>Custom Integration &amp; Branding</h3>
                         <p>Need custom branding, specific languages, or tailored workflows for your gates or apps? Get in touch.</p>
                         <div class="storelinks" style="margin-top:15px">
@@ -241,7 +455,7 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
                         <h3 style="margin:0">Enjoying Crisp Suite &amp; 3D Gates?</h3>
                         <p>Your support helps the ecosystem keep growing.</p>
                     </div>
-                    <a class="btn" href="https://ko-fi.com/handlevaultofficial" target="_blank" rel="noopener">Support on Ko-fi ☕ ↗</a>
+                    <a class="btn primary" href="https://ko-fi.com/handlevaultofficial" target="_blank" rel="noopener">Support on Ko-fi ☕ ↗</a>
                 </div>
             </section>
         </main>
@@ -258,17 +472,16 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
     <div id="paywallOverlay">
         <div class="paywall-card">
             <div style="font-size:3rem; margin-bottom:12px;">🔒</div>
-            <h3 style="color:#f4f7ff; margin-bottom:10px; font-size:1.4rem;">Unlock Full Crisp Suite Access</h3>
-            <p style="color:#aab5ca; font-size:0.92rem; margin-bottom:20px;">You've unlocked the preview! To access full lifetime source code, custom 3D envelope features, and advanced workspaces, get your Master Pass or Bundle on Gumroad.</p>
+            <h3 style="color:var(--text); margin-bottom:10px; font-size:1.4rem;">Unlock Full Crisp Suite Access</h3>
+            <p style="color:var(--muted); font-size:0.92rem; margin-bottom:20px;">You've unlocked the preview! To access full lifetime source code, custom 3D envelope features, and advanced workspaces, get your Master Pass or Bundle on Gumroad.</p>
             <a href="https://vaultkeeper117.gumroad.com/l/vmmdiz" target="_blank" class="btn primary" style="width:100%; margin-bottom:10px;">Get Ecosystem Master Pass ↗</a>
-            <button onclick="closePaywall()" style="background:transparent; border:none; color:#aab5ca; font-size:0.85rem; cursor:pointer; text-decoration:underline; margin-top:5px;">Close Preview / Back to Hub</button>
+            <button onclick="closePaywall()" style="background:transparent; border:none; color:var(--muted); font-size:0.85rem; cursor:pointer; text-decoration:underline; margin-top:5px;">Close Preview / Back to Hub</button>
         </div>
     </div>
 
     <!-- 3. JAVASCRIPT LOGIC (Na may Session Persistence) -->
     <script>
-        // Suriin kung naka-login na dati ang user pag-load ng pahina
-        window.addEventListener('DOMContentLoaded', (event) => {
+        window.addEventListener('DOMContentLoaded', () => {
             if (localStorage.getItem('crisp_logged_in') === 'true') {
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('app-content').style.display = 'block';
@@ -276,19 +489,13 @@ section.content{padding-top:65px}.sectionhead{margin-bottom:20px}.sectionhead h2
         });
 
         function handleLoginSuccess(response) {
-            // I-save sa browser na naka-login na siya (hindi nilo-log ang raw credential token)
             localStorage.setItem('crisp_logged_in', 'true');
-            
-            // Itago ang login screen at ipakita ang dashboard
             document.getElementById('login-container').style.display = 'none';
             document.getElementById('app-content').style.display = 'block';
         }
 
         function logoutUser() {
-            // Tanggalin ang save state sa localStorage
             localStorage.removeItem('crisp_logged_in');
-            
-            // Ibalik sa login screen kapag nag-sign out
             document.getElementById('app-content').style.display = 'none';
             document.getElementById('login-container').style.display = 'flex';
         }
